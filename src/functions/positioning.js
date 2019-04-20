@@ -1,6 +1,6 @@
 "use strict";
 
-var pos = function(...args){
+export var positioning = function(...args){
     var position = args[0];
     var layout_design_canvas_width = args[1];
     var layout_design_canvas_height = args[2];
@@ -41,7 +41,7 @@ var component = function() {
     return {
         css:{
             '#positioning':[
-                pos('relative', 600, 400, 600, 400, 0, 0),
+                // positioning('relative', 600, 400, 600, 400, 0, 0),
             ],
             '.positioning': {
                 'background-color': 'black'
@@ -88,4 +88,3 @@ absurd(function(api) {
     });
 });
 
-export default pos();
