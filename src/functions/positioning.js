@@ -1,4 +1,34 @@
 "use strict";
+
+var pos = function(...args){
+    var position = args[0];
+    var layout_design_canvas_width = args[1];
+    var layout_design_canvas_height = args[2];
+    var width = args[3];
+    var height = args[4];
+    var left = args[5];
+    var top = args[6];
+    width = (width / layout_design_canvas_width) * 100;
+    height = (height / layout_design_canvas_height) * 100;
+
+    // if(position === 'relative'){
+    //     console.log(position);
+    // }else if(position==='absolute'){
+    //     console.log(position);
+    // }
+
+    return{
+        position: position,
+        left: left + 'px',
+        top: top + 'px',
+        width: width + 'vw',
+        height: height + 'vh'
+    };
+
+};
+
+
+
 //plugin test
 var absurd = require("absurd");
 
@@ -57,3 +87,5 @@ absurd(function(api) {
         console.log(html);
     });
 });
+
+export default pos();
