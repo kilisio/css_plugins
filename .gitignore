@@ -16,6 +16,8 @@ pids
 node_modules/
 src/views/*.html
 src/views/*.css
+src/functions/*.html
+src/functions/*.css
 
 # TypeScript v1 declaration files
 typings/
