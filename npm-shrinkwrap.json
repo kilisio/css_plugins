@@ -959,11 +959,6 @@
       "from": "expand-tilde@>=2.0.0 <3.0.0",
       "resolved": "http://localhost:4873/expand-tilde/-/expand-tilde-2.0.2.tgz"
     },
-    "express": {
-      "version": "4.16.4",
-      "from": "express@>=4.16.4 <5.0.0",
-      "resolved": "http://localhost:4873/express/-/express-4.16.4.tgz"
-    },
     "extend-shallow": {
       "version": "3.0.2",
       "from": "extend-shallow@>=3.0.2 <4.0.0",
