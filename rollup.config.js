@@ -1,3 +1,5 @@
+import cleanup from 'rollup-plugin-cleanup';
+
 export default {
     input: 'src/lib.js',
     output: {
@@ -5,6 +7,6 @@ export default {
         format: 'esm'
     },
     plugins: [
-
+        cleanup()
     ]
 };
