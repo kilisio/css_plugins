@@ -1,6 +1,6 @@
 "use strict";
 
-export var positioning = function(...args){
+export var positioning_function = function(...args){
     var position = args[0];
     var layout_design_canvas_width = args[1];
     var layout_design_canvas_height = args[2];
@@ -8,19 +8,26 @@ export var positioning = function(...args){
     var height = args[4];
     var left = args[5];
     var top = args[6];
+    var parent_top = args[7];
+    var parent_left = args[8];
     width = (width / layout_design_canvas_width) * 100;
     height = (height / layout_design_canvas_height) * 100;
 
-    // if(position === 'relative'){
-    //     console.log(position);
-    // }else if(position==='absolute'){
-    //     console.log(position);
-    // }
+    if(position === 'relative'){
+        top = (top / layout_design_canvas_width) * 100;
+        left = (left / layout_design_canvas_height) * 100;
+    }else if(position === 'absolute'){
+        // top -= parent_top;
+        // left -= parent_left;
+        top = ((top - parent_top) / layout_design_canvas_height) * 100;
+        left = ((left - parent_left) / layout_design_canvas_width) * 100;
+    }
+
 
     return{
         position: position,
-        left: left + 'px',
-        top: top + 'px',
+        left: left + 'vw',
+        top: top + 'vh',
         width: width + 'vw',
         height: height + 'vh'
     };
@@ -33,22 +40,32 @@ export var positioning = function(...args){
 // var absurd = require("absurd");
 //
 // // plugin declaration
-// // absurd().plugin('positioning', pos())
+// // absurd().plugin('positioning_function', pos())
 //
-// var component_name = 'positioning';
+// var component_name = 'positioning_function';
 // // component
 // var component = function() {
 //     return {
 //         css:{
-//             '#positioning':[
-//                 positioning('relative', 600, 400, 600, 400, 0, 0),
+//             '#positioning_function':[
+//                 positioning_function('absolute', 1366, 768, 600, 400, 50, 50, null, 50),
 //             ],
-//             '.positioning': {
-//                 'background-color': 'black'
+//             '.positioning_function': {
+//                 'background-color': 'black',
+// 				margin: 0,
+// 				paddin: 0
+//             },
+//             '#div_body': [
+//                 positioning_function('relative', 1366, 768, 1366, 768, 0, 0, 0, 0)
+//             ],
+//             '.div_body':{
+//                 'background-color': 'yellow',
+// 				margin: 0,
+// 				padding: 0
 //             }
 //         },
 //         html:{
-//             'div.positioning#positioning': {
+//             'div.positioning_function#positioning_function': {
 //
 //             }
 //         }
@@ -68,7 +85,12 @@ export var positioning = function(...args){
 //                 title: component_name 
 //             },
 //             body: {
-//                 _include: component().html
+// 				_attrs:{
+// 					style: "margin:0;padding:0;"
+// 				},
+//                 'div#div_body.div_body':{
+//                     _include: component().html
+//                 }
 //             }
 //         }
 //     };
