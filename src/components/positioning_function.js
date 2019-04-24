@@ -1,6 +1,6 @@
 "use strict";
 
-export var positioning = function(...args){
+export var positioning_function = function(...args){
     var position = args[0];
     var layout_design_canvas_width = args[1];
     var layout_design_canvas_height = args[2];
