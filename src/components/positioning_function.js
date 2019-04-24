@@ -33,22 +33,32 @@ export var positioning = function(...args){
 // var absurd = require("absurd");
 //
 // // plugin declaration
-// // absurd().plugin('positioning', pos())
+// // absurd().plugin('positioning_function', pos())
 //
-// var component_name = 'positioning';
+// var component_name = 'positioning_function';
 // // component
 // var component = function() {
 //     return {
 //         css:{
-//             '#positioning':[
-//                 positioning('relative', 600, 400, 600, 400, 0, 0),
+//             '#positioning_function':[
+//                 positioning_function('absolute', 1366, 768, 600, 400, 50, 50, null, 50),
 //             ],
-//             '.positioning': {
-//                 'background-color': 'black'
+//             '.positioning_function': {
+//                 'background-color': 'black',
+// 				margin: 0,
+// 				paddin: 0
+//             },
+//             '#div_body': [
+//                 positioning_function('relative', 1366, 768, 1366, 768, 0, 0, 0, 0)
+//             ],
+//             '.div_body':{
+//                 'background-color': 'yellow',
+// 				margin: 0,
+// 				padding: 0
 //             }
 //         },
 //         html:{
-//             'div.positioning#positioning': {
+//             'div.positioning_function#positioning_function': {
 //
 //             }
 //         }
@@ -68,7 +78,12 @@ export var positioning = function(...args){
 //                 title: component_name 
 //             },
 //             body: {
-//                 _include: component().html
+// 				_attrs:{
+// 					style: "margin:0;padding:0;"
+// 				},
+//                 'div#div_body.div_body':{
+//                     _include: component().html
+//                 }
 //             }
 //         }
 //     };
