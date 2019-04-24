@@ -8,19 +8,26 @@ export var positioning = function(...args){
     var height = args[4];
     var left = args[5];
     var top = args[6];
+    var parent_top = args[7];
+    var parent_left = args[8];
     width = (width / layout_design_canvas_width) * 100;
     height = (height / layout_design_canvas_height) * 100;
 
-    // if(position === 'relative'){
-    //     console.log(position);
-    // }else if(position==='absolute'){
-    //     console.log(position);
-    // }
+    if(position === 'relative'){
+        top = (top / layout_design_canvas_width) * 100;
+        left = (left / layout_design_canvas_height) * 100;
+    }else if(position === 'absolute'){
+        // top -= parent_top;
+        // left -= parent_left;
+        top = ((top - parent_top) / layout_design_canvas_height) * 100;
+        left = ((left - parent_left) / layout_design_canvas_width) * 100;
+    }
+
 
     return{
         position: position,
-        left: left + 'px',
-        top: top + 'px',
+        left: left + 'vw',
+        top: top + 'vh',
         width: width + 'vw',
         height: height + 'vh'
     };
