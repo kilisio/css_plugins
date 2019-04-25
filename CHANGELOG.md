@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.0"></a>
+# 0.1.0 (2019-04-25)
+
+
+### Bug Fixes
+
+* **lib.js:** change export path for positioning object ([5a1bc16](https://github.com/kilisio/css_plugins_lib/commit/5a1bc16))
+* **lib.js:** modified positioning function export ([187436a](https://github.com/kilisio/css_plugins_lib/commit/187436a))
+* **positioning_function.js:** absolute positioning ([b9f344c](https://github.com/kilisio/css_plugins_lib/commit/b9f344c))
+* **positioning_function.js:** changed function name ([b24881e](https://github.com/kilisio/css_plugins_lib/commit/b24881e))
+
+
+### Features
+
+* **function:** added positioning function ([69e07df](https://github.com/kilisio/css_plugins_lib/commit/69e07df))
+
+
+
 <a name="1.0.0"></a>
 # 1.0.0 (2019-04-22)
 
