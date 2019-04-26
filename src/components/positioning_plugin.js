@@ -32,7 +32,7 @@ export function positioning_plugin(...args){
         height: height + 'vh'
     };
 
-};
+}
 
 
 
