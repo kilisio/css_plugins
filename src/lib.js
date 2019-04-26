@@ -1,4 +1,4 @@
 "use strict";
 
-export { positioning_function } from "./components/positioning_function.js";
+export { positioning_plugin } from "./components/positioning_plugin.js";
 
