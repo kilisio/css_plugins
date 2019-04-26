@@ -1,6 +1,6 @@
 "use strict";
 
-export function positioning_plugin(...args){
+export function positioning(...args){
     var position = args[0];
     var layout_design_canvas_width = args[1];
     var layout_design_canvas_height = args[2];
