@@ -1,6 +1,6 @@
 {
   "name": "css_plugins_lib",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "lib/lib.js",
   "files": [
     "/lib/lib.js"
