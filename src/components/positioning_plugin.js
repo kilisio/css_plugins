@@ -8,8 +8,8 @@ export function positioning(...args){
     var height = args[4];
     var left = args[5];
     var top = args[6];
-    var parent_top = args[7];
-    var parent_left = args[8];
+    var parent_left = args[7];
+    var parent_top = args[8];
     width = (width / layout_design_canvas_width) * 100;
     height = (height / layout_design_canvas_height) * 100;
 
