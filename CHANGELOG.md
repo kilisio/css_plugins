@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.4"></a>
+## [0.1.4](https://github.com/kilisio/css_plugins_lib/compare/v0.1.3...v0.1.4) (2019-04-26)
+
+
+### Bug Fixes
+
+* **lib.js:** updated positioning function export ([19d4a62](https://github.com/kilisio/css_plugins_lib/commit/19d4a62))
+* **positioning_plugin.js:** removed _plugin from function name ([838e2c4](https://github.com/kilisio/css_plugins_lib/commit/838e2c4))
+
+
+
 <a name="0.1.3"></a>
 ## [0.1.3](https://github.com/kilisio/css_plugins_lib/compare/v0.1.2...v0.1.3) (2019-04-26)
 
