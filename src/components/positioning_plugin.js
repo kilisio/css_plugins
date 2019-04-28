@@ -48,7 +48,7 @@ export function positioning(...args){
 //     return {
 //         css:{
 //             '#positioning_plugin':[
-//                 positioning_plugin('absolute', 1366, 768, 600, 400, 50, 50, null, 50),
+//                 positioning('absolute', 1366, 768, 600, 400, 50, 50, null, 50),
 //             ],
 //             '.positioning_plugin': {
 //                 'background-color': 'black',
@@ -56,7 +56,7 @@ export function positioning(...args){
 // 				paddin: 0
 //             },
 //             '#div_body': [
-//                 positioning_plugin('relative', 1366, 768, 1366, 768, 0, 0, 0, 0)
+//                 positioning('relative', 1366, 768, 1366, 768, 0, 0, 0, 0)
 //             ],
 //             '.div_body':{
 //                 'background-color': 'yellow',
