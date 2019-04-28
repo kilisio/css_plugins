@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/kilisio/css_plugins_lib/compare/v0.1.5...v0.2.0) (2019-04-28)
+
+
+### Bug Fixes
+
+* **positioning_plugin.js:** removed width and height attributes ([012d6a1](https://github.com/kilisio/css_plugins_lib/commit/012d6a1))
+
+
+### Features
+
+* css width plugin function ([1406720](https://github.com/kilisio/css_plugins_lib/commit/1406720))
+
+
+
 <a name="0.1.5"></a>
 ## [0.1.5](https://github.com/kilisio/css_plugins_lib/compare/v0.1.4...v0.1.5) (2019-04-26)
 
