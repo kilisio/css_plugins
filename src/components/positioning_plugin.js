@@ -2,25 +2,19 @@
 
 export function positioning(...args){
     var position = args[0];
-    var layout_design_canvas_width = args[1];
-    var layout_design_canvas_height = args[2];
-    var width = args[3];
-    var height = args[4];
-    var left = args[5];
-    var top = args[6];
-    var parent_left = args[7];
-    var parent_top = args[8];
-    width = (width / layout_design_canvas_width) * 100;
-    height = (height / layout_design_canvas_height) * 100;
+    var canvas_width = args[1];
+    var canvas_height = args[2];
+    var left = args[3];
+    var top = args[4];
+    var parent_left = args[5];
+    var parent_top = args[6];
 
     if(position === 'relative'){
-        top = (top / layout_design_canvas_width) * 100;
-        left = (left / layout_design_canvas_height) * 100;
+        top = (top / canvas_width) * 100;
+        left = (left / canvas_height) * 100;
     }else if(position === 'absolute'){
-        // top -= parent_top;
-        // left -= parent_left;
-        top = ((top - parent_top) / layout_design_canvas_height) * 100;
-        left = ((left - parent_left) / layout_design_canvas_width) * 100;
+        top = ((top - parent_top) / canvas_height) * 100;
+        left = ((left - parent_left) / canvas_width) * 100;
     }
 
 
@@ -28,8 +22,6 @@ export function positioning(...args){
         position: position,
         left: left + 'vw',
         top: top + 'vh',
-        width: width + 'vw',
-        height: height + 'vh'
     };
 
 }
