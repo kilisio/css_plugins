@@ -3,7 +3,7 @@
 // imports
 
 // height plugin function
-export function height(...args){
+export function y(...args){
     var canvas_height = args[0];
     var height = args[1];
 
