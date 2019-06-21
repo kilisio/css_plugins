@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/kilisio/css_plugins_lib/compare/v0.4.2...v0.5.0) (2019-06-21)
+
+
+### Bug Fixes
+
+* **lib.js:** exported xy function from xy_func.js ([85f78bf](https://github.com/kilisio/css_plugins_lib/commit/85f78bf))
+* **lib.js:** re-exported positioning function as pos from pos_func.js ([3ce7a08](https://github.com/kilisio/css_plugins_lib/commit/3ce7a08))
+* **pos_func.js:** changed positioning function name to pos ([9fc10ce](https://github.com/kilisio/css_plugins_lib/commit/9fc10ce))
+
+
+### Features
+
+* xy css plugin function code ([be2bd7b](https://github.com/kilisio/css_plugins_lib/commit/be2bd7b))
+
+
+
 <a name="0.4.2"></a>
 ## [0.4.2](https://github.com/kilisio/css_plugins_lib/compare/v0.4.1...v0.4.2) (2019-06-21)
 
