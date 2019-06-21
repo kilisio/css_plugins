@@ -15,7 +15,7 @@ export function xy(...args){
     var xy_portrait_small = args[7];
     var units;
 
-    if (attr_name === 'height'){
+    if ((attr_name === 'height') || (attr_name === 'padding-top') || (attr_name === 'padding-bottom') || (attr_name === 'margin-top') || (attr_name === 'margin-bottom') || (attr_name === 'border-top') || (attr_name === 'border-bottom')){
         units = 'vh';
         xy_landscape = ((xy_landscape / canvas_height) * 100)/(canvas_width/canvas_height);
         xy_portrait = ((xy_portrait / canvas_width) * 100)/(canvas_height/canvas_width);
@@ -78,7 +78,7 @@ export function xy(...args){
 // var style = {
 //     style:{
 //         _include:[
-//             xy('.xy_func', 'width', 1366, 768, 200, 150, 100, 50),
+//             xy('.xy_func', 'margin-top', 1366, 768, 200, 150, 100, 50),
 //             xy('.xy_func', 'height', 1366, 768, 200, 150, 100, 50),
 //         ]
 //     }
