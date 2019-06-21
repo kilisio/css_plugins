@@ -113,6 +113,22 @@ export function fontsize(...args){
 //                 },
 //                 '@media (max-width: 768px) and (orientation: portrait)':{
 //                 }
+//             },
+//             '.text': {
+//                 '@media (min-width: 769px) and (orientation: landscape)':{
+//                     margin: 0,
+//                     padding: 0,
+//                     color: 'red'
+//                 },
+//                 '@media (min-width: 769px) and (orientation: portrait)':{
+//                     color: 'green'
+//                 },
+//                 '@media (max-width: 768px) and (orientation: landscape)':{
+//                     color: 'orange'
+//                 },
+//                 '@media (max-width: 768px) and (orientation: portrait)':{
+//                     color: 'blue'
+//                 }
 //             }
 //         },
 //         html:{
@@ -122,7 +138,7 @@ export function fontsize(...args){
 //         }
 //     };
 // }
-//     
+//
 //
 // export var font_size_func_nested_layout = function(){
 // 	return font_size_func();
