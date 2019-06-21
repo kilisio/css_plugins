@@ -23,25 +23,21 @@ export function fontsize(...args){
         @element html and (min-width: 769px) and (orientation: landscape){
 	    	` + identifier + ` {
                 font-size: eval("` + fontsize_landscape + ` * (window.innerWidth/window.innerHeight)")vh;
-                color: red;
 	    	}
         }
         @element html and (min-width: 769px) and (orientation: portrait){
 	    	` + identifier + ` {
                 font-size: eval("` + fontsize_portrait + ` * (window.innerWidth/window.innerHeight)")vh;
-                color: green;
 	    	}
         }
         @element html and (max-width: 768px) and (orientation: landscape){
 	    	` + identifier + ` {
                 font-size: eval("` + fontsize_landscape_small + ` * (window.innerWidth/window.innerHeight)")vh;
-                color: orange;
 			}
         }
         @element html and (max-width: 768px) and (orientation: portrait){
 	    	` + identifier + ` {
                 font-size: eval("` + fontsize_portrait_small + ` * (window.innerWidth/window.innerHeight)")vh;
-                color: blue;
 	    	}
         }
 	`;
@@ -117,6 +113,22 @@ export function fontsize(...args){
 //                 },
 //                 '@media (max-width: 768px) and (orientation: portrait)':{
 //                 }
+//             },
+//             '.text': {
+//                 '@media (min-width: 769px) and (orientation: landscape)':{
+//                     margin: 0,
+//                     padding: 0,
+//                     color: 'red'
+//                 },
+//                 '@media (min-width: 769px) and (orientation: portrait)':{
+//                     color: 'green'
+//                 },
+//                 '@media (max-width: 768px) and (orientation: landscape)':{
+//                     color: 'orange'
+//                 },
+//                 '@media (max-width: 768px) and (orientation: portrait)':{
+//                     color: 'blue'
+//                 }
 //             }
 //         },
 //         html:{
@@ -126,7 +138,7 @@ export function fontsize(...args){
 //         }
 //     };
 // }
-//     
+//
 //
 // export var font_size_func_nested_layout = function(){
 // 	return font_size_func();

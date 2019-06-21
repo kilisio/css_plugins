@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.1"></a>
+## [0.5.1](https://github.com/kilisio/css_plugins_lib/compare/v0.5.0...v0.5.1) (2019-06-21)
+
+
+### Bug Fixes
+
+* **font_size_func.js:** removed color attribute from fontsize function ([04a7a48](https://github.com/kilisio/css_plugins_lib/commit/04a7a48))
+
+
+
 <a name="0.5.0"></a>
 # [0.5.0](https://github.com/kilisio/css_plugins_lib/compare/v0.4.2...v0.5.0) (2019-06-21)
 
