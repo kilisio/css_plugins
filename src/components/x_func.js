@@ -12,18 +12,18 @@ export function width(...args){
     return width + 'vw';
 }
 
-// // width_plugin html object
-// export var width_plugin_html = {
+// // x_func html object
+// export var x_func_html = {
 //     _include:[
 //
 //     ]
 // };
 //
-// // width_plugin component
-// export function width_plugin(...args) {
+// // x_func component
+// export function x_func(...args) {
 //     var nested_html_components = { _include: [] };
 //     if(args.length === 0){
-//             nested_html_components._include.push(width_plugin_html);
+//             nested_html_components._include.push(x_func_html);
 //     }else{
 //         for(var i=0; i<args.length; i++) {
 //             nested_html_components._include.push(args[i]);
@@ -32,18 +32,18 @@ export function width(...args){
 //
 //     return {
 //         css:{
-//             '#width_plugin':[
+//             '#x_func':[
 //
 //             ],
-//             '.width_plugin': {
+//             '.x_func': {
 //                 margin: 0,
 //                 padding: 0,
-//                 width: width(1366, 67)
+//                 width: x(1366, 67)
 //
 //             }
 //         },
 //         html:{
-//             'div#width_plugin.width_plugin': [
+//             'div#x_func.x_func': [
 //                 nested_html_components
 //             ]
 //
@@ -52,13 +52,13 @@ export function width(...args){
 //     };
 // }
 //
-// // width_plugin html page layout
+// // x_func html page layout
 // var absurd = require("absurd");
-// var component_name = 'width_plugin';
+// var component_name = 'x_func';
 //
 // //component imports
 //
-// export var width_plugin_layout = function(){
+// export var x_func_layout = function(){
 // 	return {
 // 		_:"<!DOCTYPE html>",
 // 		html: {
@@ -72,7 +72,7 @@ export function width(...args){
 // 				_attrs:{
 // 					style: "margin:0;padding:0;"
 // 				},
-// 				_include: width_plugin()
+// 				_include: x_func()
 // 			}
 // 		}
 // 	};
@@ -82,20 +82,20 @@ export function width(...args){
 // 	// print to file
 // 	var css_file = "./" + component_name + ".css";
 // 	var html_file = "./" + component_name + ".html";
-// 	api.morph("html").add(width_plugin_layout()).compileFile(html_file);
-// 	api.morph("component").add(width_plugin_layout()).compileFile(css_file);
+// 	api.morph("html").add(x_func_layout()).compileFile(html_file);
+// 	api.morph("component").add(x_func_layout()).compileFile(css_file);
 //
 // 	 // print to console
 // 	// component
-// 	api.morph("component").add(width_plugin()).compile(function(err, css, html) {
+// 	api.morph("component").add(x_func()).compile(function(err, css, html) {
 // 		console.log(css);
 // 		console.log(html);
 // 	});
 // 	// component layout
-// 	api.morph("component").add(width_plugin_layout()).compile(function(err, css) {
+// 	api.morph("component").add(x_func_layout()).compile(function(err, css) {
 // 		console.log(css);
 // 	});
-// 	api.morph("html").add(width_plugin_layout()).compile(function(err, html) {
+// 	api.morph("html").add(x_func_layout()).compile(function(err, html) {
 // 		console.log(html);
 // 	});
 // });
