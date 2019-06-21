@@ -1,6 +1,6 @@
 "use strict";
 
-export function positioning(...args){
+export function pos(...args){
     var position = args[0];
     var canvas_width = args[1];
     var canvas_height = args[2];
@@ -32,17 +32,17 @@ export function positioning(...args){
 // var absurd = require("absurd");
 //
 // // plugin declaration
-// // absurd().plugin('positioning_plugin', pos())
+// // absurd().plugin('pos_func', pos())
 //
-// var component_name = 'positioning_plugin';
+// var component_name = 'pos_func';
 // // component
 // var component = function() {
 //     return {
 //         css:{
-//             '#positioning_plugin':[
+//             '#pos_func':[
 //                 positioning('absolute', 1366, 768, 600, 400, 50, 50, null, 50),
 //             ],
-//             '.positioning_plugin': {
+//             '.pos_func': {
 //                 'background-color': 'black',
 // 				margin: 0,
 // 				paddin: 0
@@ -57,7 +57,7 @@ export function positioning(...args){
 //             }
 //         },
 //         html:{
-//             'div.positioning_plugin#positioning_plugin': {
+//             'div.pos_func#pos_func': {
 //
 //             }
 //         }
