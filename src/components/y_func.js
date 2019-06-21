@@ -3,7 +3,7 @@
 // imports
 
 // height plugin function
-export function height(...args){
+export function y(...args){
     var canvas_height = args[0];
     var height = args[1];
 
@@ -13,18 +13,18 @@ export function height(...args){
 }
 
 
-// // heigt_plugin html object
-// export var heigt_plugin_html = {
+// // y_func html object
+// export var y_func_html = {
 //     _include:[
 //
 //     ]
 // };
 //
-// // heigt_plugin component
-// export function heigt_plugin(...args) {
+// // y_func component
+// export function y_func(...args) {
 //     var nested_html_components = { _include: [] };
 //     if(args.length === 0){
-//             nested_html_components._include.push(heigt_plugin_html);
+//             nested_html_components._include.push(y_func_html);
 //     }else{
 //         for(var i=0; i<args.length; i++) {
 //             nested_html_components._include.push(args[i]);
@@ -33,32 +33,32 @@ export function height(...args){
 //
 //     return {
 //         css:{
-//             '#heigt_plugin':[
+//             '#y_func':[
 //
 //             ],
-//             '.heigt_plugin': {
+//             '.y_func': {
 //                 margin: 0,
 //                 padding: 0,
-//                 height: height(768, 670)
+//                 height: y(768, 670)
 //             }
 //         },
 //         html:{
-//             'div#heigt_plugin.heigt_plugin': [
+//             'div#y_func.y_func': [
 //                 nested_html_components
 //             ]
 //
 //         }
-//         
+//
 //     };
 // }
 //
-// // heigt_plugin html page layout
+// // y_func html page layout
 // var absurd = require("absurd");
-// var component_name = 'heigt_plugin';
+// var component_name = 'y_func';
 //
 // //component imports
 //
-// export var heigt_plugin_layout = function(){
+// export var y_func_layout = function(){
 // 	return {
 // 		_:"<!DOCTYPE html>",
 // 		html: {
@@ -72,7 +72,7 @@ export function height(...args){
 // 				_attrs:{
 // 					style: "margin:0;padding:0;"
 // 				},
-// 				_include: heigt_plugin()
+// 				_include: y_func()
 // 			}
 // 		}
 // 	};
@@ -82,20 +82,20 @@ export function height(...args){
 // 	// print to file
 // 	var css_file = "./" + component_name + ".css";
 // 	var html_file = "./" + component_name + ".html";
-// 	api.morph("html").add(heigt_plugin_layout()).compileFile(html_file);
-// 	api.morph("component").add(heigt_plugin_layout()).compileFile(css_file);
+// 	api.morph("html").add(y_func_layout()).compileFile(html_file);
+// 	api.morph("component").add(y_func_layout()).compileFile(css_file);
 //
 // 	 // print to console
 // 	// component
-// 	api.morph("component").add(heigt_plugin()).compile(function(err, css, html) {
+// 	api.morph("component").add(y_func()).compile(function(err, css, html) {
 // 		console.log(css);
 // 		console.log(html);
 // 	});
 // 	// component layout
-// 	api.morph("component").add(heigt_plugin_layout()).compile(function(err, css) {
+// 	api.morph("component").add(y_func_layout()).compile(function(err, css) {
 // 		console.log(css);
 // 	});
-// 	api.morph("html").add(heigt_plugin_layout()).compile(function(err, html) {
+// 	api.morph("html").add(y_func_layout()).compile(function(err, html) {
 // 		console.log(html);
 // 	});
 // });
