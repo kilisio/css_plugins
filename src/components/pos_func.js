@@ -1,6 +1,6 @@
 "use strict";
 
-export function positioning(...args){
+export function pos(...args){
     var position = args[0];
     var canvas_width = args[1];
     var canvas_height = args[2];
