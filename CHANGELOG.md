@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.2"></a>
+## [0.4.2](https://github.com/kilisio/css_plugins_lib/compare/v0.4.1...v0.4.2) (2019-06-21)
+
+
+### Bug Fixes
+
+* **lib.js:** re-exported height function as y from y_func.js ([4fcce6c](https://github.com/kilisio/css_plugins_lib/commit/4fcce6c))
+* **y_func.js:** changed height function name to y ([5ca43f9](https://github.com/kilisio/css_plugins_lib/commit/5ca43f9))
+
+
+
 <a name="0.4.1"></a>
 ## [0.4.1](https://github.com/kilisio/css_plugins_lib/compare/v0.4.0...v0.4.1) (2019-06-21)
 
