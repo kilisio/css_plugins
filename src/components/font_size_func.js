@@ -4,6 +4,48 @@
 
 
 // functions
+export function fontsize(...args){
+    var identifier = args[0]; 
+	var canvas_width = args[1];
+    var canvas_height = args[2];
+    var fontsize_landscape = args[3] || 16;
+    var fontsize_portrait = args[4] || 16;
+    var fontsize_landscape_small = args[5] || 16;
+    var fontsize_portrait_small = args[6] || 16;
+
+    fontsize_landscape = ((fontsize_landscape / canvas_height) * 100)/(canvas_width/canvas_height);
+    fontsize_portrait = ((fontsize_portrait / canvas_width) * 100)/(canvas_height/canvas_width);
+    fontsize_landscape_small = ((fontsize_landscape_small / canvas_height) * 100)/(canvas_width/canvas_height);
+    fontsize_portrait_small = ((fontsize_portrait_small / canvas_width) * 100)/(canvas_height/canvas_width);
+    
+
+	return `
+        @element html and (min-width: 769px) and (orientation: landscape){
+	    	` + identifier + ` {
+                font-size: eval("` + fontsize_landscape + ` * (window.innerWidth/window.innerHeight)")vh;
+                color: red;
+	    	}
+        }
+        @element html and (min-width: 769px) and (orientation: portrait){
+	    	` + identifier + ` {
+                font-size: eval("` + fontsize_portrait + ` * (window.innerWidth/window.innerHeight)")vh;
+                color: green;
+	    	}
+        }
+        @element html and (max-width: 768px) and (orientation: landscape){
+	    	` + identifier + ` {
+                font-size: eval("` + fontsize_landscape_small + ` * (window.innerWidth/window.innerHeight)")vh;
+                color: orange;
+			}
+        }
+        @element html and (max-width: 768px) and (orientation: portrait){
+	    	` + identifier + ` {
+                font-size: eval("` + fontsize_portrait_small + ` * (window.innerWidth/window.innerHeight)")vh;
+                color: blue;
+	    	}
+        }
+	`;
+}
 
 
 // // css variables
