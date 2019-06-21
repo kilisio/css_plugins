@@ -23,25 +23,21 @@ export function fontsize(...args){
         @element html and (min-width: 769px) and (orientation: landscape){
 	    	` + identifier + ` {
                 font-size: eval("` + fontsize_landscape + ` * (window.innerWidth/window.innerHeight)")vh;
-                color: red;
 	    	}
         }
         @element html and (min-width: 769px) and (orientation: portrait){
 	    	` + identifier + ` {
                 font-size: eval("` + fontsize_portrait + ` * (window.innerWidth/window.innerHeight)")vh;
-                color: green;
 	    	}
         }
         @element html and (max-width: 768px) and (orientation: landscape){
 	    	` + identifier + ` {
                 font-size: eval("` + fontsize_landscape_small + ` * (window.innerWidth/window.innerHeight)")vh;
-                color: orange;
 			}
         }
         @element html and (max-width: 768px) and (orientation: portrait){
 	    	` + identifier + ` {
                 font-size: eval("` + fontsize_portrait_small + ` * (window.innerWidth/window.innerHeight)")vh;
-                color: blue;
 	    	}
         }
 	`;
