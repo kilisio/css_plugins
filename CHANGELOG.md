@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.1"></a>
+## [0.4.1](https://github.com/kilisio/css_plugins_lib/compare/v0.4.0...v0.4.1) (2019-06-21)
+
+
+### Bug Fixes
+
+* **lib.js:** re-exported the width function as x from x_func.js ([47eb9ec](https://github.com/kilisio/css_plugins_lib/commit/47eb9ec))
+* **x_func.js:** changed function name from width to x ([61fb5ff](https://github.com/kilisio/css_plugins_lib/commit/61fb5ff))
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/kilisio/css_plugins_lib/compare/v0.3.1...v0.4.0) (2019-06-21)
 
