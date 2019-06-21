@@ -4,6 +4,45 @@
 
 
 // functions
+export function xy(...args){
+    var identifier = args[0]; 
+    var attr_name = args[1]; 
+	var canvas_width = args[2];
+    var canvas_height = args[3];
+    var xy_landscape = args[4];
+    var xy_portrait = args[5];
+    var xy_landscape_small = args[6];
+    var xy_portrait_small = args[7];
+
+    xy_landscape = ((xy_landscape / canvas_height) * 100)/(canvas_width/canvas_height);
+    xy_portrait = ((xy_portrait / canvas_width) * 100)/(canvas_height/canvas_width);
+    xy_landscape_small = ((xy_landscape_small / canvas_height) * 100)/(canvas_width/canvas_height);
+    xy_portrait_small = ((xy_portrait_small / canvas_width) * 100)/(canvas_height/canvas_width);
+    
+
+	return `
+        @element html and (min-width: 769px) and (orientation: landscape){
+	    	` + identifier + ` {
+                ` + attr_name + `: eval("` + xy_landscape + ` * (window.innerWidth/window.innerHeight)")vh;
+	    	}
+        }
+        @element html and (min-width: 769px) and (orientation: portrait){
+	    	` + identifier + ` {
+                ` + attr_name + `: eval("` + xy_portrait + ` * (window.innerWidth/window.innerHeight)")vh;
+	    	}
+        }
+        @element html and (max-width: 768px) and (orientation: landscape){
+	    	` + identifier + ` {
+                ` + attr_name + `: eval("` + xy_landscape_small + ` * (window.innerWidth/window.innerHeight)")vh;
+			}
+        }
+        @element html and (max-width: 768px) and (orientation: portrait){
+	    	` + identifier + ` {
+                ` + attr_name + `: eval("` + xy_portrait_small + ` * (window.innerWidth/window.innerHeight)")vh;
+	    	}
+        }
+	`;
+}
 
 
 // // css variables
