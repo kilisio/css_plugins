@@ -3,7 +3,7 @@
 // imports
 
 // width plugin function
-export function width(...args){
+export function x(...args){
     var canvas_width = args[0];
     var width = args[1];
 
