@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.6"></a>
+## [0.5.6](https://github.com/kilisio/css_plugins_lib/compare/v0.5.5...v0.5.6) (2019-06-22)
+
+
+### Bug Fixes
+
+* **font_func.js:** mofified formula ([a3ca4b3](https://github.com/kilisio/css_plugins_lib/commit/a3ca4b3))
+* **lib.js:** changed fontsize function export file ([0dde05f](https://github.com/kilisio/css_plugins_lib/commit/0dde05f))
+
+
+
 <a name="0.5.5"></a>
 ## [0.5.5](https://github.com/kilisio/css_plugins_lib/compare/v0.5.4...v0.5.5) (2019-06-22)
 
