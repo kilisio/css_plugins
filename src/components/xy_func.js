@@ -79,8 +79,8 @@ export function xy(...args){
 // var style = {
 //     style:{
 //         _include:[
-//             xy('.xy_func', 'margin-top', 1366, 768, 200, 150, 100, 50),
-//             xy('.xy_func', 'height', 1366, 768, 200, 150, 100, 50),
+//             xy('.xy_func', 'width', 'vw', 1366, 768, 200, 150, 100, 50),
+//             xy('.xy_func', 'height', 'vh', 1366, 768, 200, 150, 100, 50),
 //         ]
 //     }
 // };
