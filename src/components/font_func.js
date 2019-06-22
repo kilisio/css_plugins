@@ -64,24 +64,24 @@ export function fontsize(...args){
 //     }
 // };
 //
-// // font_size_func html object
-// export var font_size_func_html = {
+// // font_func html object
+// export var font_func_html = {
 //     _include:[
 //         style,
 //         p_1
 //     ]
 // };
 //
-// //// font_size_func css object
-// //export var font_size_func_css = {
+// //// font_func css object
+// //export var font_func_css = {
 // //	
 // //};
 //
-// // font_size_func component
-// export function font_size_func(...args) {
+// // font_func component
+// export function font_func(...args) {
 //     var nested_html_components = { _include: [] };
 //     if(args.length === 0){
-//             nested_html_components._include.push(font_size_func_html);
+//             nested_html_components._include.push(font_func_html);
 //     }else{
 //         for(var i=0; i<args.length; i++) {
 //             nested_html_components._include.push(args[i]);
@@ -90,7 +90,7 @@ export function fontsize(...args){
 //
 //     return {
 //         css:{
-//             '#font_size_func': {
+//             '#font_func': {
 //                 '@media (min-width: 769px) and (orientation: landscape)':{
 //                     margin: 0,
 //                     padding: 0
@@ -102,7 +102,7 @@ export function fontsize(...args){
 //                 '@media (max-width: 768px) and (orientation: portrait)':{
 //                 }
 //             },
-//             '.font_size_func': {
+//             '.font_func': {
 //                 '@media (min-width: 769px) and (orientation: landscape)':{
 //                     margin: 0,
 //                     padding: 0
@@ -132,7 +132,7 @@ export function fontsize(...args){
 //             }
 //         },
 //         html:{
-//             'div#font_size_func.font_size_func': [
+//             'div#font_func.font_func': [
 //                 nested_html_components
 //             ]
 //         }
@@ -140,17 +140,17 @@ export function fontsize(...args){
 // }
 //
 //
-// export var font_size_func_nested_layout = function(){
-// 	return font_size_func();
+// export var font_func_nested_layout = function(){
+// 	return font_func();
 // };
 //
 //
-// // font_size_func html page layout
-// var component_name = 'font_size_func';
+// // font_func html page layout
+// var component_name = 'font_func';
 // //var page_title = '';
 //
 //
-// export var font_size_func_page_layout = function(){
+// export var font_func_page_layout = function(){
 // 	return {
 // 		_:"<!DOCTYPE html>",
 // 		html: {
@@ -168,13 +168,13 @@ export function fontsize(...args){
 // 				_attrs:{
 // 					style: "margin:0;padding:0;"
 // 				},
-// 				_include: font_size_func_nested_layout()
+// 				_include: font_func_nested_layout()
 // 			}
 // 		}
 // 	};
 // };
 //
-// // font_size_func component test code
+// // font_func component test code
 // var absurd = require("absurd");
 //
 //
@@ -182,20 +182,20 @@ export function fontsize(...args){
 // 	// print to file
 // 	var css_file = "./" + component_name + ".css";
 // 	var html_file = "./" + component_name + ".html";
-// 	api.morph("html").add(font_size_func_page_layout()).compileFile(html_file);
-// 	api.morph("component").add(font_size_func_page_layout()).compileFile(css_file);
+// 	api.morph("html").add(font_func_page_layout()).compileFile(html_file);
+// 	api.morph("component").add(font_func_page_layout()).compileFile(css_file);
 //
 // 	 // print to console
 // 	// component
-// 	api.morph("component").add(font_size_func()).compile(function(err, css, html) {
+// 	api.morph("component").add(font_func()).compile(function(err, css, html) {
 // 		console.log(css);
 // 		console.log(html);
 // 	});
 // 	// component layout
-// 	api.morph("component").add(font_size_func_page_layout()).compile(function(err, css) {
+// 	api.morph("component").add(font_func_page_layout()).compile(function(err, css) {
 // 		console.log(css);
 // 	});
-// 	api.morph("html").add(font_size_func_page_layout()).compile(function(err, html) {
+// 	api.morph("html").add(font_func_page_layout()).compile(function(err, html) {
 // 		console.log(html);
 // 	});
 // });
