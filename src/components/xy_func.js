@@ -16,18 +16,18 @@ export function xy(...args){
     var xy_portrait_small = args[8];
     var window_multiplier;
 
-    if ((attr_name === 'height') || (attr_name === 'padding-top') || (attr_name === 'padding-bottom') || (attr_name === 'margin-top') || (attr_name === 'margin-bottom') || (attr_name === 'border-top') || (attr_name === 'border-bottom')){
-        units = 'vh';
-        xy_landscape = ((xy_landscape / canvas_height) * 100)/(canvas_width/canvas_height);
-        xy_portrait = ((xy_portrait / canvas_width) * 100)/(canvas_height/canvas_width);
-        xy_landscape_small = ((xy_landscape_small / canvas_height) * 100)/(canvas_width/canvas_height);
-        xy_portrait_small = ((xy_portrait_small / canvas_width) * 100)/(canvas_height/canvas_width);
-    }else {
-        units = 'vw';
-        xy_landscape = ((xy_landscape / canvas_width) * 100)/(canvas_width/canvas_height);
-        xy_portrait = ((xy_portrait / canvas_height) * 100)/(canvas_height/canvas_width);
-        xy_landscape_small = ((xy_landscape_small / canvas_width) * 100)/(canvas_width/canvas_height);
-        xy_portrait_small = ((xy_portrait_small / canvas_height) * 100)/(canvas_height/canvas_width);
+    if (units === 'vh'){
+        xy_landscape = ((xy_landscape / canvas_height) * 100)/canvas_height;
+        xy_portrait = ((xy_portrait / canvas_width) * 100)/canvas_width;
+        xy_landscape_small = ((xy_landscape_small / canvas_height) * 100)/canvas_height;
+        xy_portrait_small = ((xy_portrait_small / canvas_width) * 100)/canvas_width;
+        window_multiplier = 'window.innerHeight';
+    }else if(units === 'vw'){
+        xy_landscape = ((xy_landscape / canvas_width) * 100)/canvas_width;
+        xy_portrait = ((xy_portrait / canvas_height) * 100)/canvas_height;
+        xy_landscape_small = ((xy_landscape_small / canvas_width) * 100)/canvas_width;
+        xy_portrait_small = ((xy_portrait_small / canvas_height) * 100)/canvas_height;
+        window_multiplier = 'window.innerWidth';
     }
 
     
