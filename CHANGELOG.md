@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.9"></a>
+## [0.5.9](https://github.com/kilisio/css_plugins_lib/compare/v0.5.8...v0.5.9) (2019-06-22)
+
+
+### Bug Fixes
+
+* **pos_func:** modified top and left variables ([a9f3faf](https://github.com/kilisio/css_plugins_lib/commit/a9f3faf))
+
+
+
 <a name="0.5.8"></a>
 ## [0.5.8](https://github.com/kilisio/css_plugins_lib/compare/v0.5.7...v0.5.8) (2019-06-22)
 
