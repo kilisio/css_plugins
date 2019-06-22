@@ -7,13 +7,14 @@
 export function xy(...args){
     var identifier = args[0]; 
     var attr_name = args[1];  
-	var canvas_width = args[2];
-    var canvas_height = args[3];
-    var xy_landscape = args[4];
-    var xy_portrait = args[5];
-    var xy_landscape_small = args[6];
-    var xy_portrait_small = args[7];
-    var units;
+    var units = args[2] || 'vw';
+	var canvas_width = args[3];
+    var canvas_height = args[4];
+    var xy_landscape = args[5];
+    var xy_portrait = args[6];
+    var xy_landscape_small = args[7];
+    var xy_portrait_small = args[8];
+    var window_multiplier;
 
     if ((attr_name === 'height') || (attr_name === 'padding-top') || (attr_name === 'padding-bottom') || (attr_name === 'margin-top') || (attr_name === 'margin-bottom') || (attr_name === 'border-top') || (attr_name === 'border-bottom')){
         units = 'vh';
@@ -34,22 +35,22 @@ export function xy(...args){
 	return `
         @element html and (min-width: 769px) and (orientation: landscape){
 	    	` + identifier + ` {
-                ` + attr_name + `: eval("` + xy_landscape + ` * (window.innerWidth/window.innerHeight)")` + units +`;
+                ` + attr_name + `: eval("` + xy_landscape + ` * ` + window_multiplier + `")` + units +`;
 	    	}
         }
         @element html and (min-width: 769px) and (orientation: portrait){
 	    	` + identifier + ` {
-                ` + attr_name + `: eval("` + xy_portrait + ` * (window.innerWidth/window.innerHeight)")` + units +`;
+                ` + attr_name + `: eval("` + xy_portrait + ` * ` + window_multiplier + `")` + units +`;
 	    	}
         }
         @element html and (max-width: 768px) and (orientation: landscape){
 	    	` + identifier + ` {
-                ` + attr_name + `: eval("` + xy_landscape_small + ` * (window.innerWidth/window.innerHeight)")` + units +`;
+                ` + attr_name + `: eval("` + xy_landscape_small + ` * ` + window_multiplier + `")` + units +`;
 			}
         }
         @element html and (max-width: 768px) and (orientation: portrait){
 	    	` + identifier + ` {
-                ` + attr_name + `: eval("` + xy_portrait_small + ` * (window.innerWidth/window.innerHeight)")` + units +`;
+                ` + attr_name + `: eval("` + xy_portrait_small + ` * ` + window_multiplier + `")` + units +`;
 	    	}
         }
 	`;
