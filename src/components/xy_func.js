@@ -7,7 +7,7 @@
 export function xy(...args){
     var identifier = args[0]; 
     var attr_name = args[1];  
-    var units = args[2] || 'vw';
+    var units = args[2];
 	var canvas_width = args[3];
     var canvas_height = args[4];
     var xy_landscape = args[5];
@@ -17,17 +17,17 @@ export function xy(...args){
     var window_multiplier;
 
     if (units === 'vh'){
-        xy_landscape = ((xy_landscape / canvas_height) * 100)/canvas_height;
-        xy_portrait = ((xy_portrait / canvas_width) * 100)/canvas_width;
-        xy_landscape_small = ((xy_landscape_small / canvas_height) * 100)/canvas_height;
-        xy_portrait_small = ((xy_portrait_small / canvas_width) * 100)/canvas_width;
-        window_multiplier = 'window.innerHeight';
-    }else if(units === 'vw'){
-        xy_landscape = ((xy_landscape / canvas_width) * 100)/canvas_width;
-        xy_portrait = ((xy_portrait / canvas_height) * 100)/canvas_height;
-        xy_landscape_small = ((xy_landscape_small / canvas_width) * 100)/canvas_width;
-        xy_portrait_small = ((xy_portrait_small / canvas_height) * 100)/canvas_height;
+        xy_landscape = ((xy_landscape / canvas_height) * 100)/canvas_width;
+        xy_portrait = ((xy_portrait / canvas_width) * 100)/canvas_height;
+        xy_landscape_small = ((xy_landscape_small / canvas_height) * 100)/canvas_width;
+        xy_portrait_small = ((xy_portrait_small / canvas_width) * 100)/canvas_height;
         window_multiplier = 'window.innerWidth';
+    }else if(units === 'vw'){
+        xy_landscape = ((xy_landscape / canvas_width) * 100)/canvas_height;
+        xy_portrait = ((xy_portrait / canvas_height) * 100)/canvas_width;
+        xy_landscape_small = ((xy_landscape_small / canvas_width) * 100)/canvas_height;
+        xy_portrait_small = ((xy_portrait_small / canvas_height) * 100)/canvas_width;
+        window_multiplier = 'window.innerHeight';
     }
 
     
