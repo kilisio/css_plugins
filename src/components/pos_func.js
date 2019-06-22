@@ -4,6 +4,67 @@
 
 
 //functions
+export function pos(...args){
+    var identifier = args[0];
+    var orientation = args[1];
+    var position = args[2];
+    var canvas_width = args[3];
+    var canvas_height = args[4];
+    var left = args[5];
+    var top = args[6];
+    var parent_left = args[7];
+    var parent_top = args[8];
+
+    if(position === 'relative'){
+        top = ((top / canvas_height) * 100)/canvas_width;
+        left = ((left / canvas_width) * 100)/canvas_height;
+    }else if(position === 'absolute'){
+        top = (((top - parent_top) / canvas_height) * 100)/canvas_width;
+        left = (((left - parent_left) / canvas_width) * 100)/canvas_height;
+    }
+
+    if(orientation === 'landscape'){
+        return `
+            @element html and (min-width: 769px) and (orientation: landscape){
+                ` + identifier + ` {
+                    position: ` + position + `;
+                    top: eval("` + top + ` * window.innerWidth")vh;
+                    left: eval("` + left + ` * window.innerHeight")vw;
+                }
+            }
+        `;
+    }else if(orientation === 'portrait'){
+        return `
+            @element html and (min-width: 769px) and (orientation: portrait){
+                ` + identifier + ` {
+                    position: ` + position + `;
+                    top: eval("` + top + ` * window.innerWidth")vh;
+                    left: eval("` + left + ` * window.innerHeight")vw;
+                }
+            }
+        `;
+    }else if(orientation === 'landscape_small'){
+        return `
+            @element html and (max-width: 768px) and (orientation: landscape){
+                ` + identifier + ` {
+                    position: ` + position + `;
+                    top: eval("` + top + ` * window.innerWidth")vh;
+                    left: eval("` + left + ` * window.innerHeight")vw;
+                }
+            }
+        `;
+    }else if(orientation === 'portrait_small'){
+        return `
+            @element html and (max-width: 768px) and (orientation: portrait){
+                ` + identifier + ` {
+                    position: ` + position + `;
+                    top: eval("` + top + ` * window.innerWidth")vh;
+                    left: eval("` + left + ` * window.innerHeight")vw;
+                }
+            }
+        `;
+    }
+}
 
 // // css variables
 //
