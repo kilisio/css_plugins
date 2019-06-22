@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.7"></a>
+## [0.5.7](https://github.com/kilisio/css_plugins_lib/compare/v0.5.6...v0.5.7) (2019-06-22)
+
+
+### Bug Fixes
+
+* **xy_func.js:** formulate changes relative to width and height based on unit variable values ([413252f](https://github.com/kilisio/css_plugins_lib/commit/413252f))
+
+
+
 <a name="0.5.6"></a>
 ## [0.5.6](https://github.com/kilisio/css_plugins_lib/compare/v0.5.5...v0.5.6) (2019-06-22)
 
