@@ -16,47 +16,19 @@ export function pos(...args){
     var parent_top = args[6];
 
 
-    if(orientation === 'landscape'){
-        return `
-            @element html and (min-width: 769px) and (orientation: landscape){
-                ` + identifier + ` {
-                    position: ` + position + `;
-                    top: eval("` + top + ` * window.innerWidth")vh;
-                    left: eval("` + left + ` * window.innerHeight")vw;
-                }
-            }
-        `;
-    }else if(orientation === 'portrait'){
-        return `
-            @element html and (min-width: 769px) and (orientation: portrait){
-                ` + identifier + ` {
-                    position: ` + position + `;
-                    top: eval("` + top + ` * window.innerWidth")vh;
-                    left: eval("` + left + ` * window.innerHeight")vw;
-                }
-            }
-        `;
-    }else if(orientation === 'landscape_small'){
-        return `
-            @element html and (max-width: 768px) and (orientation: landscape){
-                ` + identifier + ` {
-                    position: ` + position + `;
-                    top: eval("` + top + ` * window.innerWidth")vh;
-                    left: eval("` + left + ` * window.innerHeight")vw;
-                }
-            }
-        `;
-    }else if(orientation === 'portrait_small'){
-        return `
-            @element html and (max-width: 768px) and (orientation: portrait){
-                ` + identifier + ` {
-                    position: ` + position + `;
-                    top: eval("` + top + ` * window.innerWidth")vh;
-                    left: eval("` + left + ` * window.innerHeight")vw;
-                }
-            }
-        `;
-    }
+	if(orientation === 'landscape'){
+		left = ((left - parent_left) / canvas_width_landscape) * 100;
+		top = ((top - parent_top) / canvas_height_landscape) * 100;
+	}else if(orientation === 'portrait'){
+		left = ((left - parent_left) / canvas_width_portrait) * 100;
+		top = ((top - parent_top) / canvas_height_portrait) * 100;
+	}
+	
+	return {
+		position: 'absolute',
+		left: '' + left + 'vw',
+		top: '' + top + 'vh'
+	};
 }
 
 // // css variables
