@@ -4,6 +4,28 @@
 
 
 // functions
+export function xy(...args){
+    var orientation = args[0];
+    var canvas_width_landscape = args[1];
+    var canvas_height_landscape = args[2];
+    var canvas_width_portrait = args[2];
+    var canvas_height_portrait = args[1];
+    var width = args[3];
+    var height = args[4];
+
+	if(orientation === 'landscape'){
+		width = (width / canvas_width_landscape) * 100;
+        height = (height / canvas_height_landscape) * 100;
+	}else if(orientation === 'portrait'){
+		width = (width / canvas_width_portrait) * 100;
+        height = (height / canvas_height_portrait) * 100;
+	}
+	
+	return {
+		width: '' + width + 'vw',
+        height: '' + height + 'vh'
+	};
+}
 
 
 // // css variables
