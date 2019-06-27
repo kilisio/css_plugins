@@ -5,15 +5,15 @@
 
 //functions
 export function pos(...args){
-    var identifier = args[0];
-    var orientation = args[1];
-    var position = args[2];
-    var canvas_width = args[3];
-    var canvas_height = args[4];
-    var left = args[5];
-    var top = args[6];
-    var parent_left = args[7];
-    var parent_top = args[8];
+    var orientation = args[0];
+    var canvas_width_landscape = args[1];
+    var canvas_height_landscape = args[2];
+    var canvas_width_portrait = args[2];
+    var canvas_height_portrait = args[1];
+    var left = args[3];
+    var top = args[4];
+    var parent_left = args[5];
+    var parent_top = args[6];
 
     if(position === 'relative'){
         top = ((top / canvas_height) * 100)/canvas_width;
