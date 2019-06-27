@@ -2286,6 +2286,15 @@
       "integrity": "sha512-7T/BxH19zbcCTa8XkMlbK5lTo1WtgkFi3GvdWEyNuc4Vex7/9Dqbnpsf4JMydcfj9HCg4zUWFTL3Za6lapg5/w==",
       "dev": true
     },
+    "html_partials_lib": {
+      "version": "0.5.4",
+      "resolved": "http://localhost:4873/html_partials_lib/-/html_partials_lib-0.5.4.tgz",
+      "integrity": "sha512-n5KvopAB/twHbIRUkvaMxAVF4/C3BrReAVA/TPLcrKwozKxNWQHJ0fH7BmeivNcF+gG3J6ZYXAuzwGi9VZRr3g==",
+      "requires": {
+        "absurd": "0.3.9",
+        "esm": "^3.1.4"
+      }
+    },
     "htmlparser2": {
       "version": "3.8.3",
       "resolved": "http://localhost:4873/htmlparser2/-/htmlparser2-3.8.3.tgz",
