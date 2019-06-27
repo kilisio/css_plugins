@@ -53,10 +53,7 @@ export function pos(...args){
 // var style = {
 //     style:{
 //         _include:[
-//             pos('.pos_func', 'landscape', 'absolute', 1366, 768, 50, 50, 0, 0),
-//             pos('.pos_func', 'portrait', 'absolute', 1366, 768, 50, 50, 0, 0),
-//             pos('.pos_func', 'landscape_small', 'absolute', 1366, 768, 50, 50, 0, 0),
-//             pos('.pos_func', 'portrait_small', 'absolute', 1366, 768, 50, 50, 0, 0)
+//
 //         ]
 //     }
 // };
@@ -87,6 +84,20 @@ export function pos(...args){
 //
 //     return {
 //         css:{
+// 			'%%#pos_func': {
+// 				'@media (min-width: 769px) and (orientation: landscape)':[
+// 					pos('landscape', 1366, 768, 50, 30, 0, 0)
+// 				],
+// 				'@media (min-width: 769px) and (orientation: portrait)':[
+// 					pos('portrait', 1366, 768, 30, 50, 0, 0)
+// 				],
+// 				'@media (max-width: 768px) and (orientation: landscape)':[
+// 					pos('landscape', 1366, 768, 20, 10, 0, 0)
+// 				],
+// 				'@media (max-width: 768px) and (orientation: portrait)':[
+// 					pos('portrait', 1366, 768, 10, 20, 0, 0)
+// 				]
+// 			},
 //             '#pos_func': {
 //                 '@media (min-width: 769px) and (orientation: landscape)':{
 //                 },
@@ -134,10 +145,10 @@ export function pos(...args){
 //             ]
 //
 //         }
-//         
+//
 //     };
 // }
-//     
+//
 //
 // export var pos_func_nested_layout = function(){
 // 	return pos_func();
