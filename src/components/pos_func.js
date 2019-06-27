@@ -15,13 +15,6 @@ export function pos(...args){
     var parent_left = args[5];
     var parent_top = args[6];
 
-    if(position === 'relative'){
-        top = ((top / canvas_height) * 100)/canvas_width;
-        left = ((left / canvas_width) * 100)/canvas_height;
-    }else if(position === 'absolute'){
-        top = (((top - parent_top) / canvas_height) * 100)/canvas_width;
-        left = (((left - parent_left) / canvas_width) * 100)/canvas_height;
-    }
 
     if(orientation === 'landscape'){
         return `
