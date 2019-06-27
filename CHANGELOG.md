@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.11"></a>
+## [0.5.11](https://github.com/kilisio/css_plugins_lib/compare/v0.5.10...v0.5.11) (2019-06-27)
+
+
+### Bug Fixes
+
+* **pos_func.js:** opted for only absolute property of position css attribute ([9e87433](https://github.com/kilisio/css_plugins_lib/commit/9e87433))
+* **pos_func.js:** removed element query usage ([474fa59](https://github.com/kilisio/css_plugins_lib/commit/474fa59))
+* **pos_func.js:** reordered variables against provided arguments, renamed variables, deleted variabl ([deb8517](https://github.com/kilisio/css_plugins_lib/commit/deb8517))
+
+
+
 <a name="0.5.10"></a>
 ## [0.5.10](https://github.com/kilisio/css_plugins_lib/compare/v0.5.9...v0.5.10) (2019-06-27)
 
