@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.1"></a>
+## [0.6.1](https://github.com/kilisio/css_plugins_lib/compare/v0.6.0...v0.6.1) (2019-06-30)
+
+
+### Bug Fixes
+
+* **lib.js:** re-exported scalexy function as scale from scale_func.js ([114f358](https://github.com/kilisio/css_plugins_lib/commit/114f358))
+* **scale_func.js:** changed function name from scalexy to scale ([5212672](https://github.com/kilisio/css_plugins_lib/commit/5212672))
+
+
+
 <a name="0.6.0"></a>
 # [0.6.0](https://github.com/kilisio/css_plugins_lib/compare/v0.5.11...v0.6.0) (2019-06-27)
 
