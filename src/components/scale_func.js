@@ -11,34 +11,26 @@ export function scale(...args){
     var canvas_height_landscape = args[3];
 	var canvas_width_portrait = args[3];
     var canvas_height_portrait = args[2];
-
-    if(orientation === 'landscape'){
-        return `
-            @element html and (min-width: 769px) and (orientation: landscape){
-                ` + identifier + ` {
-                    transform: scale(eval(" Math.min( window.innerWidth / ` + canvas_width_landscape + `, window.innerHeight / ` + canvas_height_landscape + ` )"));
-                }
-            }
-            @element html and (max-width: 768px) and (orientation: landscape){
-                ` + identifier + ` {
-                    transform: scale(eval(" Math.min( window.innerWidth / ` + canvas_width_landscape + `, window.innerHeight / ` + canvas_height_landscape + ` )"));
-                }
-            }
-        `;
-    }else if(orientation === 'portrait'){
-        return `
-            @element html and (min-width: 769px) and (orientation: portrait){
-                ` + identifier + ` {
-                    transform: scale(eval(" Math.min( window.innerWidth / ` + canvas_width_portrait + `, window.innerHeight / ` + canvas_height_portrait + ` )"));
-                }
-            }
-            @element html and (max-width: 768px) and (orientation: portrait){
-                ` + identifier + ` {
-                    transform: scale(eval(" Math.min( window.innerWidth / ` + canvas_width_portrait + `, window.innerHeight / ` + canvas_height_portrait + ` )"));
-                }
-            }
-        `;
-    }
+	
+	if(orientation === 'landscape'){
+    	return `
+    	    @element html and (orientation: landscape){
+    	        ` + identifier + ` {
+    	                transform: scaleX(eval("window.innerWidth / ` + canvas_width_landscape + `")) scaleY(eval("window.innerHeight / ` + canvas_height_landscape + `"));
+						transform-origin: left top;
+    	        }
+    	    }
+    	`;
+	}else if(orientation === 'portrait'){
+    	return `
+    	    @element html and (orientation: portrait){
+    	        ` + identifier + ` {
+    	                transform: scaleX(eval("window.innerWidth / ` + canvas_width_portrait + `")) scaleY(eval("window.innerHeight / ` + canvas_height_portrait + `"));
+						transform-origin: left top;
+    	        }
+    	    }
+    	`;
+	}
 }
 
 // // html variables
