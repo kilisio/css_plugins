@@ -4,7 +4,7 @@
 // import * as html_partials from "html_partials_lib";
 
 // functions
-export function scalexy(...args){
+export function scale(...args){
     var identifier = args[0]; 
     var orientation = args[1];
 	var canvas_width_landscape = args[2];
