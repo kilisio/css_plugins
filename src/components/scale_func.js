@@ -2,43 +2,36 @@
 
 // imports
 // import * as html_partials from "html_partials_lib";
+// import { pos } from "./pos_func.js";
 
 // functions
-export function scalexy(...args){
+export function scale(...args){
     var identifier = args[0]; 
     var orientation = args[1];
 	var canvas_width_landscape = args[2];
     var canvas_height_landscape = args[3];
 	var canvas_width_portrait = args[3];
     var canvas_height_portrait = args[2];
-
-    if(orientation === 'landscape'){
-        return `
-            @element html and (min-width: 769px) and (orientation: landscape){
-                ` + identifier + ` {
-                    transform: scale(eval(" Math.min( window.innerWidth / ` + canvas_width_landscape + `, window.innerHeight / ` + canvas_height_landscape + ` )"));
-                }
-            }
-            @element html and (max-width: 768px) and (orientation: landscape){
-                ` + identifier + ` {
-                    transform: scale(eval(" Math.min( window.innerWidth / ` + canvas_width_landscape + `, window.innerHeight / ` + canvas_height_landscape + ` )"));
-                }
-            }
-        `;
-    }else if(orientation === 'portrait'){
-        return `
-            @element html and (min-width: 769px) and (orientation: portrait){
-                ` + identifier + ` {
-                    transform: scale(eval(" Math.min( window.innerWidth / ` + canvas_width_portrait + `, window.innerHeight / ` + canvas_height_portrait + ` )"));
-                }
-            }
-            @element html and (max-width: 768px) and (orientation: portrait){
-                ` + identifier + ` {
-                    transform: scale(eval(" Math.min( window.innerWidth / ` + canvas_width_portrait + `, window.innerHeight / ` + canvas_height_portrait + ` )"));
-                }
-            }
-        `;
-    }
+	
+	if(orientation === 'landscape'){
+    	return `
+    	    @element html and (orientation: landscape){
+    	        ` + identifier + ` {
+    	                transform: scaleX(eval("window.innerWidth / ` + canvas_width_landscape + `")) scaleY(eval("window.innerHeight / ` + canvas_height_landscape + `"));
+						transform-origin: left top;
+    	        }
+    	    }
+    	`;
+	}else if(orientation === 'portrait'){
+    	return `
+    	    @element html and (orientation: portrait){
+    	        ` + identifier + ` {
+    	                transform: scaleX(eval("window.innerWidth / ` + canvas_width_portrait + `")) scaleY(eval("window.innerHeight / ` + canvas_height_portrait + `"));
+						transform-origin: left top;
+    	        }
+    	    }
+    	`;
+	}
 }
 
 // // html variables
@@ -66,14 +59,14 @@ export function scalexy(...args){
 // var style = {
 //     style:{
 //         _:[
-//             scalexy('.scalexy_func', 'landscape', 1366, 768),
-//             scalexy('.scalexy_func', 'portrait', 1366, 768)
+//             scale('.scale_func', 'landscape', 1366, 768),
+//             scale('.scale_func', 'portrait', 1366, 768)
 //         ]
 //     }
 // };
 //
-// // scalexy_func html object
-// export var scalexy_func_html = {
+// // scale_func html object
+// export var scale_func_html = {
 //     _include:[
 //         style,
 //         script,
@@ -95,11 +88,11 @@ export function scalexy(...args){
 //     ]
 // };
 //
-// // scalexy_func component
-// export function scalexy_func(...args) {
+// // scale_func component
+// export function scale_func(...args) {
 //     var nested_html_components = { _include: [] };
 //     if(args.length === 0){
-//             nested_html_components._include.push(scalexy_func_html);
+//             nested_html_components._include.push(scale_func_html);
 //     }else{
 //         for(var i=0; i<args.length; i++) {
 //             nested_html_components._include.push(args[i]);
@@ -120,7 +113,18 @@ export function scalexy(...args){
 //                 'font-weight': 'normal',
 //                 'font-style': 'normal'
 //             },
-//             '#scalexy_func': {
+// 			'%%.scale_func': {
+// 				'@media (min-width: 769px) and (orientation: landscape)':[
+// 					pos('landscape', 1366, 768, 20, 108, 0, 0),
+// 				],
+// 				'@media (min-width: 769px) and (orientation: portrait)':[
+// 				],
+// 				'@media (max-width: 768px) and (orientation: landscape)':[
+// 				],
+// 				'@media (max-width: 768px) and (orientation: portrait)':[
+// 				]
+// 			},
+//             '#scale_func': {
 //                 '@media (min-width: 769px) and (orientation: landscape)':{
 //                     margin: 0,
 //                     padding: 0
@@ -132,17 +136,13 @@ export function scalexy(...args){
 //                 '@media (max-width: 768px) and (orientation: portrait)':{
 //                 }
 //             },
-//             '.scalexy_func': {
+//             '.scale_func': {
 //                 '@media (min-width: 769px) and (orientation: landscape)':{
 //                     margin: 0,
 //                     padding: 0,
-// 					position: 'absolute',
-// 					top: '5vh',
-// 					left: '5vw',
 //                     width: '318.317px',
 //                     height: '397.003px',
-//                     'background-color': '#1a0a00',
-// 					'transform-origin': 'left top'
+//                     'background-color': '#1a0a00'
 //                 },
 //                 '@media (min-width: 769px) and (orientation: portrait)':{
 //                 },
@@ -266,20 +266,20 @@ export function scalexy(...args){
 //             }
 //         },
 //         html:{
-//             'div#scalexy_func.scalexy_func': [
+//             'div#scale_func.scale_func': [
 //                 nested_html_components
 //             ]
 //         }
 //     };
 // }
 //
-// // scalexy_func html page layout
+// // scale_func html page layout
 // var absurd = require("absurd");
-// var component_name = 'scalexy_func';
+// var component_name = 'scale_func';
 //
 // //component imports
 //
-// export var scalexy_func_layout = function(){
+// export var scale_func_layout = function(){
 // 	return {
 // 		_:"<!DOCTYPE html>",
 // 		html: {
@@ -297,7 +297,7 @@ export function scalexy(...args){
 // 					style: "margin:0;padding:0;"
 // 				},
 // 				_include: [ 
-//                     scalexy_func(), 
+//                     scale_func(), 
 //                     '<script src="./assets/scripts/eqcss/EQCSS.min.js"></script>'
 //                 ]
 // 			},
@@ -309,20 +309,20 @@ export function scalexy(...args){
 // 	// print to file
 // 	var css_file = "./" + component_name + ".css";
 // 	var html_file = "./" + component_name + ".html";
-// 	api.morph("html").add(scalexy_func_layout()).compileFile(html_file);
-// 	api.morph("component").add(scalexy_func_layout()).compileFile(css_file);
+// 	api.morph("html").add(scale_func_layout()).compileFile(html_file);
+// 	api.morph("component").add(scale_func_layout()).compileFile(css_file);
 //
 // 	 // print to console
 // 	// component
-// 	api.morph("component").add(scalexy_func()).compile(function(err, css, html) {
+// 	api.morph("component").add(scale_func()).compile(function(err, css, html) {
 // 		console.log(css);
 // 		console.log(html);
 // 	});
 // 	// component layout
-// 	api.morph("component").add(scalexy_func_layout()).compile(function(err, css) {
+// 	api.morph("component").add(scale_func_layout()).compile(function(err, css) {
 // 		console.log(css);
 // 	});
-// 	api.morph("html").add(scalexy_func_layout()).compile(function(err, html) {
+// 	api.morph("html").add(scale_func_layout()).compile(function(err, html) {
 // 		console.log(html);
 // 	});
 // });
