@@ -16,35 +16,31 @@
 
 
 // FUNCTIONS
+export function scale(identifier, devices){
+    var scales = [];
+    for(let i in devices){
+        if(devices.hasOwnProperty(i)){
+            let device_scaling = `
+                @element html and (orientation: landscape) and (max-width: ` + devices[i].max_width + `px) and (min-width: ` + devices[i].min_width + `px){
+                    ` + identifier + ` {
+                            transform: scaleX(eval('window.innerWidth / ` + devices[i].width + `')) scaleY(eval("window.innerHeight / ` + devices[i].height + `"));
+                            transform-origin: left top;
+                    }
+                }
+                @element html and (orientation: portrait) and (max-width: ` + devices[i].max_width + `px) and (min-width: ` + devices[i].min_width + `px){
+                    ` + identifier + ` {
+                            transform: scaleX(eval('window.innerWidth / ` + devices[i].width + `')) scaleY(eval("window.innerHeight / ` + devices[i].height + `"));
+                            transform-origin: left top;
+                    }
+                }
+            `;
 
-// functions
-export function scale(...args){
-    var identifier = args[0]; 
-    var orientation = args[1];
-	var canvas_width_landscape = args[2];
-    var canvas_height_landscape = args[3];
-	var canvas_width_portrait = args[3];
-    var canvas_height_portrait = args[2];
-	
-	if(orientation === 'landscape'){
-    	return `
-    	    @element html and (orientation: landscape){
-    	        ` + identifier + ` {
-    	                transform: scaleX(eval("window.innerWidth / ` + canvas_width_landscape + `")) scaleY(eval("window.innerHeight / ` + canvas_height_landscape + `"));
-						transform-origin: left top;
-    	        }
-    	    }
-    	`;
-	}else if(orientation === 'portrait'){
-    	return `
-    	    @element html and (orientation: portrait){
-    	        ` + identifier + ` {
-    	                transform: scaleX(eval("window.innerWidth / ` + canvas_width_portrait + `")) scaleY(eval("window.innerHeight / ` + canvas_height_portrait + `"));
-						transform-origin: left top;
-    	        }
-    	    }
-    	`;
-	}
+            scales.push(device_scaling);
+        }
+    }
+
+    return scales.join('');
+
 }
 
 
