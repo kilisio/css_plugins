@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.2"></a>
+## [0.6.2](https://github.com/kilisio/css_plugins/compare/v0.6.1...v0.6.2) (2019-09-13)
+
+
+### Bug Fixes
+
+* **scale_func.js:** updated function to accept an object array of resposive media query options ([463944c](https://github.com/kilisio/css_plugins/commit/463944c))
+
+
+
 <a name="0.6.1"></a>
 ## [0.6.1](https://github.com/kilisio/css_plugins_lib/compare/v0.6.0...v0.6.1) (2019-06-30)
 
