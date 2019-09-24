@@ -3,7 +3,7 @@
   "version": "0.6.2",
   "main": "lib.js",
   "files": [
-    "/lib/lib.js"
+    "/rls"
   ],
   "description": "absurdjs custom css attributes plugin",
   "directories": {
