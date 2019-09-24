@@ -7,7 +7,7 @@ import commonJS from 'rollup-plugin-commonjs';
 export default {
     input: 'src/lib.js',
     output: {
-        file: 'rls/lib.js',
+        file: 'lib/lib.js',
         format: 'esm'
     },
     plugins: [
@@ -29,7 +29,7 @@ export default {
                         'src/log',
                         'src/api.js'
                     ], 
-                    dest: 'rls'
+                    dest: 'lib'
                 }
             ]
         })
