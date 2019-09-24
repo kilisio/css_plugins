@@ -1,6 +1,6 @@
 "use strict";
 
-// // IMPORTS
+// // // IMPORTS
 // import * as html_partials from "html_partials_lib";
 // import { pos } from "./pos_func.js";
 //
@@ -22,6 +22,12 @@ export function scale(identifier, devices){
         if(devices.hasOwnProperty(i)){
             let device_scaling = `
                 @element html and (orientation: landscape) and (max-width: ` + devices[i].max_width + `px) and (min-width: ` + devices[i].min_width + `px){
+    // media queries
+        // console.log(orientation);
+        // console.log(max_width);
+        // console.log(min_width);
+        // console.log(max_height);
+        // console.log(min_height);
                     ` + identifier + ` {
                             transform: scaleX(eval('window.innerWidth / ` + devices[i].width + `')) scaleY(eval("window.innerHeight / ` + devices[i].height + `"));
                             transform-origin: left top;
@@ -54,17 +60,37 @@ export function scale(identifier, devices){
 //
 // // HTML ATTRIBUTE OBJECT
 // var responsive = {
-//     laptop:{
-//         width: 1366,
-//         height: 768,
-//         max_width: 1366,
-//         min_width: 769
+//     laptop: {
+//         landscape: {
+//             orientation: 'landscape',
+//             width: 1366,
+//             height: 768,
+//             max_width: 1366,
+//             min_width: 769
+//         },
+//         portrait: {
+//             orientation: 'portrait',
+//             width: 768,
+//             height: 1366,
+//             max_width: 1366,
+//             min_width: 769
+//         }
 //     },
-//     phablet:{
-//         width: 768,
-//         height: 432,
-//         max_width: 768,
-//         min_width: 320
+//     phablet: {
+//         landscape: {
+//             orientation: 'landscape',
+//             width: 768,
+//             height: 432,
+//             max_width: 768,
+//             min_width: 320
+//         },
+//         portrait: {
+//             orientation: 'portrait',
+//             width: 432,
+//             height: 768,
+//             max_width: 768,
+//             min_width: 320
+//         }
 //     }
 // };	
 //
@@ -83,7 +109,10 @@ export function scale(identifier, devices){
 // var inline_style = {
 //     style:{
 //         _include:[
-//             scale('.scale_func', responsive),
+//             scale('.scale_func', responsive.laptop.landscape),
+//             scale('.scale_func', responsive.laptop.portrait),
+//             scale('.scale_func', responsive.phablet.landscape),
+//             scale('.scale_func', responsive.phablet.portrait)
 //         ]
 //     }
 // };
@@ -123,28 +152,6 @@ export function scale(identifier, devices){
 // };
 //
 //
-//
-// //// CSS OBJECT
-// //export var scale_func_base_css = {
-// //};
-// //export var scale_func_component_css = {
-//     //'@media (min-width: 769px) and (orientation: landscape)':{
-//     //	margin: 0,
-//     //	padding: 0
-//     //},
-//     //'@media (min-width: 769px) and (orientation: portrait)':{
-//     //	margin: 0,
-//     //	padding: 0
-//     //},
-//     //'@media (max-width: 768px) and (orientation: landscape)':{
-//     //	margin: 0,
-//     //	padding: 0
-//     //},
-//     //'@media (max-width: 768px) and (orientation: portrait)':{
-//     //	margin: 0,
-//     //	padding: 0
-//     //}
-// //};
 //
 // // COMPONENT
 // export function scale_func(...args) {
