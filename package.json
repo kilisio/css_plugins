@@ -44,7 +44,7 @@
     "commit": "git-cz",
     "release": "standard-version",
     "build_js": "rollup -c",
-    "dist_web": "openode deploy"
+    "dist_openode": "openode deploy"
   },
   "license": "MIT",
   "husky": {},
