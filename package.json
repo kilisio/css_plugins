@@ -1,7 +1,7 @@
 {
   "name": "css_plugins",
   "version": "0.6.2",
-  "main": "lib/lib.js",
+  "main": "lib.js",
   "files": [
     "/lib/lib.js"
   ],
