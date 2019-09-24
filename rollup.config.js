@@ -12,7 +12,7 @@ export default {
     },
     plugins: [
         clear({
-            targets: ['rls'],
+            targets: ['lib'],
         }),
         resolve(),
         commonJS({
