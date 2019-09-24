@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.4"></a>
+## [0.6.4](https://github.com/kilisio/css_plugins/compare/v0.6.3...v0.6.4) (2019-09-24)
+
+
+
+<a name="0.6.3"></a>
+## [0.6.3](https://github.com/kilisio/css_plugins/compare/v0.6.2...v0.6.3) (2019-09-24)
+
+
+### Bug Fixes
+
+* **lib.js:** modified export object paths ([9de3bc2](https://github.com/kilisio/css_plugins/commit/9de3bc2))
+* **lib.js:** removed pos_func and xy_func function exports ([f0d7f62](https://github.com/kilisio/css_plugins/commit/f0d7f62))
+* **scale_func.js:** generate media_query variable from by concatenating properties of a function arg ([8066038](https://github.com/kilisio/css_plugins/commit/8066038))
+
+
+
 <a name="0.6.2"></a>
 ## [0.6.2](https://github.com/kilisio/css_plugins/compare/v0.6.1...v0.6.2) (2019-09-13)
 

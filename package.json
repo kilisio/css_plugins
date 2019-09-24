@@ -1,9 +1,9 @@
 {
   "name": "css_plugins",
-  "version": "0.6.2",
-  "main": "lib/lib.js",
+  "version": "0.6.4",
+  "main": "/lib/lib.js",
   "files": [
-    "/lib/lib.js"
+    "/rls"
   ],
   "description": "absurdjs custom css attributes plugin",
   "directories": {
@@ -21,8 +21,11 @@
     "jshint": "^2.9.7",
     "open": "^6.4.0",
     "prettier": "^1.16.1",
-    "rollup": "^1.10.0",
     "rollup-plugin-cleanup": "^3.1.1",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-copy": "^3.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "standard-version": "^5.0.2"
   },
   "dependencies": {
@@ -30,17 +33,18 @@
     "esm": "^3.1.4",
     "express": "^4.17.1",
     "helmet": "^3.21.0",
-    "html_partials_lib": "^0.5.4"
+    "html_partials_lib": "^0.5.4",
+    "rollup": "^1.21.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./src/server/server.js",
+    "start": "node ./src/server.js",
     "build": "npm run build_js",
-    "rls": "npm run release && npm publish",
+    "rls": "npm run build && npm run release && npm publish",
     "commit": "git-cz",
     "release": "standard-version",
     "build_js": "rollup -c",
-    "dist_web": "openode deploy"
+    "dist_openode": "openode deploy"
   },
   "license": "MIT",
   "husky": {},
