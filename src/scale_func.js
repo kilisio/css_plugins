@@ -63,12 +63,6 @@ export function scale(identifier, properties){
                             transform-origin: left top;
                     }
                 }
-                @element html and ` + media_query + `{
-                    ` + identifier + ` {
-                            transform: scaleX(eval('window.innerWidth / ` + properties.width + `')) scaleY(eval("window.innerHeight / ` + properties.height + `"));
-                            transform-origin: left top;
-                    }
-                }
             `;
 
     return scale;
