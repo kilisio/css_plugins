@@ -16,36 +16,62 @@
 
 
 // FUNCTIONS
-export function scale(identifier, devices){
-    var scales = [];
-    for(let i in devices){
-        if(devices.hasOwnProperty(i)){
-            let device_scaling = `
-                @element html and (orientation: landscape) and (max-width: ` + devices[i].max_width + `px) and (min-width: ` + devices[i].min_width + `px){
+export function scale(identifier, properties){
+    let orientation,
+        max_width,
+        min_width,
+        max_height,
+        min_height,
+        media_query;
+
+
     // media queries
+    if((properties.orientation !== undefined) && (properties.orientation !== null)){
+        orientation = '(orientation: ' + properties.orientation + ')';
         // console.log(orientation);
+        media_query = orientation;
+    }
+
+    if((properties.max_width !== undefined) && (properties.max_width !== null)){
+        max_width = ' and (max-width: ' + properties.max_width + 'px)';
         // console.log(max_width);
+        media_query += max_width;
+    }
+
+    if((properties.min_width !== undefined) && (properties.min_width !== null)){
+        min_width = ' and (min-width: ' + properties.min_width + 'px)';
         // console.log(min_width);
+        media_query += min_width;
+    }
+
+    if((properties.max_height !== undefined) && (properties.max_height !== null)){
+        max_height = ' and (max-height: ' + properties.max_height + 'px)';
         // console.log(max_height);
+        media_query += max_height;
+    }
+
+    if((properties.min_height !== undefined) && (properties.min_height !== null)){
+        min_height = ' and (min-height: ' + properties.min_height + 'px)';
         // console.log(min_height);
+        media_query += min_height;
+    }
+
+            let scale = `
+                @element html and ` + media_query + `{
                     ` + identifier + ` {
-                            transform: scaleX(eval('window.innerWidth / ` + devices[i].width + `')) scaleY(eval("window.innerHeight / ` + devices[i].height + `"));
+                            transform: scaleX(eval('window.innerWidth / ` + properties.width + `')) scaleY(eval("window.innerHeight / ` + properties.height + `"));
                             transform-origin: left top;
                     }
                 }
-                @element html and (orientation: portrait) and (max-width: ` + devices[i].max_width + `px) and (min-width: ` + devices[i].min_width + `px){
+                @element html and ` + media_query + `{
                     ` + identifier + ` {
-                            transform: scaleX(eval('window.innerWidth / ` + devices[i].width + `')) scaleY(eval("window.innerHeight / ` + devices[i].height + `"));
+                            transform: scaleX(eval('window.innerWidth / ` + properties.width + `')) scaleY(eval("window.innerHeight / ` + properties.height + `"));
                             transform-origin: left top;
                     }
                 }
             `;
 
-            scales.push(device_scaling);
-        }
-    }
-
-    return scales.join('');
+    return scale;
 
 }
 
