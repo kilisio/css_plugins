@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.8"></a>
+## [0.6.8](https://github.com/kilisio/css_plugins/compare/v0.6.7...v0.6.8) (2019-09-27)
+
+
+### Bug Fixes
+
+* **lib.js:** re-exported xy function component ([e39c2ae](https://github.com/kilisio/css_plugins/commit/e39c2ae))
+* **xy_func.js:** re-added and modified the xy function component ([9fa7db9](https://github.com/kilisio/css_plugins/commit/9fa7db9))
+
+
+
 <a name="0.6.7"></a>
 ## [0.6.7](https://github.com/kilisio/css_plugins/compare/v0.6.6...v0.6.7) (2019-09-24)
 
