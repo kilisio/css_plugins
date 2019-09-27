@@ -24,6 +24,24 @@
 // };
 
 // functions
+export function xy(xy, media){
+    let canvas = {...media},
+        canvas_width = canvas.width,
+        canvas_height = canvas.height,
+        width,
+        height;
+
+    width = (xy / canvas_width) * 100;
+    height = (xy / canvas_height) * 100;
+	
+	return {
+		width: '' + width + 'vw',
+        height: '' + height + 'vh'
+	};
+}
+
+
+
 // // xy_func html object
 // export var xy_func_html = {
 //     _include:[
