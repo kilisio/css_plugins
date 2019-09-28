@@ -35,8 +35,8 @@ export function xy(xy, media){
     height = (xy / canvas_height) * 100;
 	
 	return {
-		width: '' + width + 'vw',
-        height: '' + height + 'vh'
+		x: '' + width + 'vw',
+        y: '' + height + 'vh'
 	};
 }
 
