@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.9"></a>
+## [0.6.9](https://github.com/kilisio/css_plugins/compare/v0.6.8...v0.6.9) (2019-09-28)
+
+
+### Bug Fixes
+
+* **xy_func.js:** changed function return values from width and height to x and y ([56456aa](https://github.com/kilisio/css_plugins/commit/56456aa))
+
+
+
 <a name="0.6.8"></a>
 ## [0.6.8](https://github.com/kilisio/css_plugins/compare/v0.6.7...v0.6.8) (2019-09-27)
 
