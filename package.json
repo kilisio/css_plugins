@@ -29,6 +29,7 @@
     "express": "^4.17.1",
     "helmet": "^3.18.0",
     "html-minifier": "^4.0.0",
+    "html_partials-0.6.18": "npm:html_partials@^0.6.18",
     "husky": "^1.3.1",
     "javascript-obfuscator": "^0.18.4",
     "jshint": "^2.9.7",
