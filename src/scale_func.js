@@ -1,21 +1,13 @@
 "use strict";
 
-// // // IMPORTS
-// import * as html_partials from "html_partials_lib";
-// import { pos } from "./pos_func.js";
+// // IMPORTS
+// var absurd = require("absurd");
+// import * as html_partials from "html_partials-0.6.18";
+// import * as meld from "@kilisio/hypha_meld_lib-0.1.33";
+// import { fonts } from "./fonts.js";
+// import { xy } from "./xy_func.js";
 //
-//
-// // SCRIPTS
-// var eqcss = {
-// 	script:{
-// 		_attrs:{
-// 			src: './assets/scripts/eqcss/EQCSS.min.js'
-// 		}
-// 	}
-// };
-
-
-// FUNCTIONS
+// FUNCTION
 export function scale(identifier, properties){
     let orientation,
         max_width,
@@ -56,450 +48,878 @@ export function scale(identifier, properties){
         media_query += min_height;
     }
 
-            let scale = `
-                @element html and ` + media_query + `{
-                    ` + identifier + ` {
-                            transform: scaleX(eval('window.innerWidth / ` + properties.width + `')) scaleY(eval("window.innerHeight / ` + properties.height + `"));
-                            transform-origin: left top;
-                    }
-                }
-            `;
+    let scale = `
+        @element html and ` + media_query + `{
+            ` + identifier + ` {
+                transform: scaleX(eval('window.innerWidth / ` + properties.width + `')) scaleY(eval("window.innerHeight / ` + properties.height + `"));
+                    transform-origin: left top;
+            }
+        }
+    `;
 
     return scale;
 
 }
 
-
-// // CSS VARIABLES
+// // TEMPLATE CONFIGURATIONS
+// // Template options 
+// var options = {
+//     default_template:{
+//         name: 'default_template',
+//         z_index: null
+//     }
+// };
 //
-//
-//
-// // HTML INLINE SCRIPT VARIABLES
-//
-//
-//
-// // HTML ATTRIBUTE OBJECT
-// var responsive = {
-//     laptop: {
-//         landscape: {
-//             orientation: 'landscape',
-//             width: 1366,
-//             height: 768,
-//             max_width: 1366,
-//             min_width: 769
-//         },
-//         portrait: {
-//             orientation: 'portrait',
-//             width: 768,
-//             height: 1366,
-//             max_width: 1366,
-//             min_width: 769
-//         }
+// // page layout template configuration
+// var config = {
+//     settings: {
+//         project_name: 'scale_func',
+//         layout: 'default_layout'
 //     },
-//     phablet: {
-//         landscape: {
-//             orientation: 'landscape',
-//             width: 768,
-//             height: 432,
-//             max_width: 768,
-//             min_width: 320
+//     default_template:{
+//         template: {
+//             laptop:{
+//                 landscape: 'default_template',
+//                 portrait: 'default_template'
+//             },
+//             phablet:{
+//                 landscape: 'default_template',
+//                 portrait: 'default_template'
+//             }
 //         },
-//         portrait: {
-//             orientation: 'portrait',
-//             width: 432,
-//             height: 768,
-//             max_width: 768,
-//             min_width: 320
-//         }
-//     }
-// };	
-//
-//
-//
-//
-// // HTML VARIABLES
-// var inline_script = {
-//     'script[type="text/javascript"]':{
-//         _:[
-//
-//         ]
-//     }	
-// };
-//
-// var inline_style = {
-//     style:{
-//         _include:[
-//             scale('.scale_func', responsive.laptop.landscape),
-//             scale('.scale_func', responsive.laptop.portrait),
-//             scale('.scale_func', responsive.phablet.landscape),
-//             scale('.scale_func', responsive.phablet.portrait)
+//         components: [
+//             scale_func_templates(options.default_template)
 //         ]
 //     }
 // };
 //
-// var skillset = [
-//     html_partials.span('#', 'skillset_hash', 'hash'), 
-//     html_partials.span('skill set', 'skillset', 'link_group')
-// ];
 //
-// var projects = [
-//     html_partials.span('#', 'projects_hash', 'hash'), 
-//     html_partials.span('projects', 'projects', 'link_group')
-// ];
+// // TEMPLATE FUNCTION
+// export function scale_func_templates(options){
+//     // devices component mockup design properties
+//     let component_template_options = {...options}, comp_state;
 //
-//
-// // HTML OBJECT
-// export var scale_func_html = {
-//     _include:[
-//         inline_style,
-//         inline_script,
-//         html_partials.lists(
-//             html_partials.links('./folio_view.html', skillset.join('')),
-//             html_partials.links('./folio_view.html', '- Programming Languages', 'prog_lang_link', 'sub_link'),
-//             html_partials.links('./development_environments_view.html', '- Development Environments', 'dev_env_link', 'sub_link'),
-//             html_partials.links('./popular_libraries_modules_view.html', '- Popular Libraries and Modules', 'lib_mod_link', 'sub_link'),
-//             html_partials.links('./general_computer_skills_view.html', '- General Computer Skills', 'gen_comp_link', 'sub_link'),
-//             html_partials.links('./web_apps.html', projects.join('')),
-//             html_partials.links('./web_apps.html', '- web applications', 'web_app_link', 'sub_link'),
-//             html_partials.links('./graphics.html', '- graphics designs', 'graphic_design_link', 'sub_link'),
-//             html_partials.links('./vim_plugins.html', '- vim plugins', 'vim_plug_link', 'sub_link'),
-//             html_partials.links('./contributions.html', '- open source contributions', 'contrib_link', 'sub_link'),
-//             html_partials.links('./photography.html', '- photography', 'photo_link', 'sub_link'),
-//             html_partials.links('./electronics.html', '- electronics', 'elec_link', 'sub_link'),
-//             html_partials.links('./metal_fabrication.html', '- metal fabrication', 'metal_fab_link', 'sub_link')
-//         )
-//     ]
-// };
-//
-//
-//
-// // COMPONENT
-// export function scale_func(...args) {
-//     var nested_html_components = { _include: [] };
-//     if(args.length === 0){
-//             nested_html_components._include.push(scale_func_html);
+//     if(component_template_options.scale_func === undefined){
+//         comp_state = {
+//         html: 'on',
+//         styles: 'on',
+//         scripts: 'on',
+//         css: 'on',
+//         fonts: 'on'
+//         };
 //     }else{
-//         nested_html_components._include.push(scale_func_html);
-//         for(var i=0; i<args.length; i++) {
-//             nested_html_components._include.push(args[i]);
-//         }
+//         comp_state = {...component_template_options.scale_func};
 //     }
 //
-//     return {
-//         css:{
-//             '@font-face': {
-//                 'font-family': 'forced_squaremedium',
-//                 'src': "url('./assets/fonts/forced_squaremedium/forced_square-webfont.eot?#iefix') format('embedded-opentype'), url('./assets/fonts/forced_squaremedium/forced_square-webfont.woff2') format('woff2'), url('./assets/fonts/forced_squaremedium/forced_square-webfont.woff') format('woff'), url('./assets/fonts/forced_squaremedium/forced_square-webfont.ttf') format('truetype'), url('./assets/fonts/forced_squaremedium/forced_square-webfont.svg#forced_squaremedium') format('svg')",
-//                 'font-weight': 'normal',
-//                 'font-style': 'normal',
+//     let component_details = {
+//         project: '.online_portfolio',
+//         name: 'scale_func',
+//         classifier: '.scale_func',
+//         identifier: '#scale_func',
+//         html: comp_state.html,
+//         styles: comp_state.styles,
+//         scripts: comp_state.scripts,
+//         css: comp_state.css,
+//         fonts: comp_state.fonts
+//     };
+//     let media = {
+//         laptop:{
+//             landscape:{
+//                 orientation:'landscape',
+//                 max_width: null,
+//                 max_height: null,
+//                 min_width: 769,
+//                 min_height: null,
+//                 width: 1366,
+//                 height: 768
 //             },
-//             '%%@font-face': {
-//                 'font-family': 'felona_stmedium',
-//                 'src': "url('./assets/fonts/felona_stmedium/felonast-medium-webfont.eot?#iefix') format('embedded-opentype'), url('./assets/fonts/felona_stmedium/felonast-medium-webfont.woff2') format('woff2'), url('./assets/fonts/felona_stmedium/felonast-medium-webfont.woff') format('woff'), url('./assets/fonts/felona_stmedium/felonast-medium-webfont.ttf') format('truetype'), url('./assets/fonts/felona_stmedium/felonast-medium-webfont.svg#felona_stmedium') format('svg')",
-//                 'font-weight': 'normal',
-//                 'font-style': 'normal'
+//             portrait:{
+//                 orientation: 'portrait',
+//                 max_width: null,
+//                 max_height: null,
+//                 min_width: 769,
+//                 min_height: null,
+//                 width: 768,
+//                 height: 1366
+//             }
+//         },
+//         phablet:{
+//             landscape:{
+//                 orientation:'landscape',
+//                 max_width: 768,
+//                 max_height: null,
+//                 min_width: null,
+//                 min_height: null,
+//                 width: 768,
+//                 height: 432
 //             },
-//             '%base%': [
-//             ],
-//             '%component%.scale_func': [
-//             ],
-//             '%%.scale_func': {
-//                 '@media (min-width: 769px) and (orientation: landscape)':[
-// 					pos('landscape', 1366, 768, 20, 108, 0, 0),
-//                 ],
-//                 '@media (min-width: 769px) and (orientation: portrait)':[
-//                 ],
-//                 '@media (max-width: 768px) and (orientation: landscape)':[
-// 					pos('landscape', 768, 432, 12, 76, 0, 0),
-//                 ],
-//                 '@media (max-width: 768px) and (orientation: portrait)':[
-//                 ]
-//             },
-//             '.scale_func': {
-//                 '@media (min-width: 769px) and (orientation: landscape)':{
-//                     margin: 0,
-//                     padding: 0,
-//                     width: '318.317px',
-//                     height: '397.003px',
-//                     'background-color': '#1a0a00'
-//                 },
-//                 '@media (min-width: 769px) and (orientation: portrait)':{
-//                     margin: 0,
-//                     padding: 0
-//                 },
-//                 '@media (max-width: 768px) and (orientation: landscape)':{
-//                     margin: 0,
-//                     padding: 0,
-//                     width: '243px',
-//                     height: '309px',
-//                     'background-color': '#1a0a00'
-//                 },
-//                 '@media (max-width: 768px) and (orientation: portrait)':{
-//                     margin: 0,
-//                     padding: 0
-//                 }
-//             },
-//             '.hash':{
-//                 '@media (min-width: 769px) and (orientation: landscape)':{
-//                     margin: 0,
-//                     padding: 0,
-//                     'margin-top': '5px',
-//                     'margin-left': '5px',
-//                     'font-size': '48px',
-//                     'font-family': 'forced_squaremedium',
-//                     color: '#ff6600'
-//                 },
-//                 '@media (min-width: 769px) and (orientation: portrait)':{
-//                 },
-//                 '@media (max-width: 768px) and (orientation: landscape)':{
-//                     margin: 0,
-//                     padding: 0,
-//                     'margin-top': '5px',
-//                     'margin-left': '5px',
-//                     'font-size': '40px',
-//                     'font-family': 'forced_squaremedium',
-//                     color: '#ff6600'
-//                 },
-//                 '@media (max-width: 768px) and (orientation: portrait)':{
-//                 }
-//             },
-//             '.link_group':{
-//                 '@media (min-width: 769px) and (orientation: landscape)':{
-//                     margin: 0,
-//                     padding: 0,
-//                     'margin-top': '5px',
-//                     'margin-left': '5px',
-//                     'font-size': '32px',
-//                     'font-family': 'forced_squaremedium',
-//                     color: '#fff0e6'
-//                 },
-//                 '@media (min-width: 769px) and (orientation: portrait)':{
-//                 },
-//                 '@media (max-width: 768px) and (orientation: landscape)':{
-//                     margin: 0,
-//                     padding: 0,
-//                     'margin-top': '5px',
-//                     'margin-left': '5px',
-//                     'font-size': '28px',
-//                     'font-family': 'forced_squaremedium',
-//                     color: '#fff0e6'
-//                 },
-//                 '@media (max-width: 768px) and (orientation: portrait)':{
-//                 }
-//             },
-//             '.sub_link': {
-//                 '@media (min-width: 769px) and (orientation: landscape)':{
-//                     margin: 0,
-//                     padding: 0,
-//                     'margin-top': '5px',
-//                     'margin-left': '20px',
-//                     'font-family': 'felona_stmedium',
-//                     'font-size': '17.3333px',
-//                     color: '#fff0e6',
-//                     ':hover':{
-//                         color: '#ff6600'
-//                     }
-//                 },
-//                 '@media (min-width: 769px) and (orientation: portrait)':{
-//                 },
-//                 '@media (max-width: 768px) and (orientation: landscape)':{
-//                     margin: 0,
-//                     padding: 0,
-//                     'margin-top': '5px',
-//                     'margin-left': '20px',
-//                     'font-family': 'felona_stmedium',
-//                     'font-size': '14px',
-//                     color: '#fff0e6',
-//                     ':hover':{
-//                         color: '#ff6600'
-//                     }
-//                 },
-//                 '@media (max-width: 768px) and (orientation: portrait)':{
-//                 }
-//             },
-//             ul:{
-//                 '@media (min-width: 769px) and (orientation: landscape)':{
-//                     margin: 0,
-//                     padding: 0,
-//                     'list-style': 'none'
-//                 },
-//                 '@media (min-width: 769px) and (orientation: portrait)':{
-//                 },
-//                 '@media (max-width: 768px) and (orientation: landscape)':{
-//                     margin: 0,
-//                     padding: 0,
-//                     'list-style': 'none'
-//                 },
-//                 '@media (max-width: 768px) and (orientation: portrait)':{
-//                 },
-//                 li:{
-//                     '@media (min-width: 769px) and (orientation: landscape)':{
+//             portrait:{
+//                 orientation: 'portrait',
+//                 max_width: 768,
+//                 max_height: null,
+//                 min_width: null,
+//                 min_height: null,
+//                 width: 432,
+//                 height: 768
+//             }
+//         }
+//     };
+//
+//     // inline scripts variables
+//
+//
+//     // inline styles variables
+//     let scaled = {
+//         laptop_landscape: scale(component_details.project + component_details.classifier, media.laptop.landscape),
+//         laptop_portrait: scale(component_details.project + component_details.classifier, media.laptop.portrait),
+//         phablet_landscape: scale(component_details.project + component_details.classifier, media.phablet.landscape),
+//         phablet_portrait: scale(component_details.project + component_details.classifier, media.phablet.portrait)
+//     };
+//
+//
+//     // html attributes
+//     let skillset_link_attr = {
+//         id: 'skillset_link',
+//         'class': 'link_group',
+//         href: '/prog_lang_page.html',
+//         onclick: 'route(this.id);return false;'
+//     };
+//     
+//     let prog_lang_link_attr = {
+//         id: 'prog_lang_link',
+//         'class': 'sub_link',
+//         href: '/prog_lang_page.html',
+//         onclick: 'route(this.id);return false;'
+//     };
+//     
+//     let dev_env_link_attr = {
+//         id: 'dev_env_link',
+//         'class': 'sub_link',
+//         href: '/dev_env_page.html',
+//         onclick: 'route(this.id);return false;'
+//     };
+//     
+//     let lib_mod_link_attr = {
+//         id: 'lib_mod_link',
+//         'class': 'sub_link',
+//         href: '/lib_mod_page.html',
+//         onclick: 'route(this.id);return false;'
+//     };
+//     
+//     let gen_comp_link_attr = {
+//         id: 'gen_comp_link',
+//         'class': 'sub_link',
+//         href: '/gen_comp_page.html',
+//         onclick: 'route(this.id);return false;'
+//     };
+//     
+//     let projects_link_attr = {
+//         id: 'projects_link',
+//         'class': 'link_group',
+//         href: '/web_app_page.html',
+//         onclick: 'route(this.id);return false;'
+//     };
+//     
+//     let web_app_link_attr = {
+//         id: 'web_app_link',
+//         'class': 'sub_link',
+//         href: '/web_app_page.html',
+//         onclick: 'route(this.id);return false;'
+//     };
+//     
+//     let graphics_link_attr = {
+//         id: 'graphics_link',
+//         'class': 'sub_link',
+//         href: '/graphics_page.html',
+//         onclick: 'route(this.id);return false;'
+//     };
+//     
+//     let vim_plug_link_attr = {
+//         id: 'vim_plug_link',
+//         'class': 'sub_link',
+//         href: '/vim_plug_page.html',
+//         onclick: 'route(this.id);return false;'
+//     };
+//     
+//     let contrib_link_attr = {
+//         id: 'contrib_link',
+//         'class': 'sub_link',
+//         href: '/contrib_page.html',
+//         onclick: 'route(this.id);return false;'
+//     };
+//     
+//     let photo_link_attr = {
+//         id: 'photo_link',
+//         'class': 'sub_link',
+//         href: '/photo_page.html',
+//         onclick: 'route(this.id);return false;'
+//     };
+//     
+//     let elec_link_attr = {
+//         id: 'elec_link',
+//         'class': 'sub_link',
+//         href: '/elec_page.html',
+//         onclick: 'route(this.id);return false;'
+//     };
+//     
+//     let metal_fab_link_attr = {
+//         id: 'metal_fab_link',
+//         'class': 'sub_link',
+//         href: '/metal_fab_page.html',
+//         onclick: 'route(this.id);return false;'
+//     };
+//
+//     let folio_nav_list_attr = {
+//         id: 'folio_nav_list',
+//         'class': 'folio_nav_list'
+//     };
+//
+//     let skillset_hash = {
+//         id: 'skillset_hash',
+//         'class': 'link_group_hash'
+//     };
+//
+//     let skillset_text = {
+//         id: 'skillset_text',
+//         'class': 'link_group_text'
+//     };
+//
+//     let projects_hash = {
+//         id: 'projects_hash',
+//         'class': 'link_group_hash'
+//     };
+//
+//     let projects_text = {
+//         id: 'projects_text',
+//         'class': 'link_group_text'
+//     };
+//
+//     // html variables
+//         let folio_nav_list = html_partials.ul_list( folio_nav_list_attr,
+//             html_partials.link(skillset_link_attr, 
+//                 html_partials.span(skillset_hash, '#'),
+//                 html_partials.span(skillset_text, 'skill set')
+//             ),
+//             html_partials.link(prog_lang_link_attr, '- programming languages'),
+//             html_partials.link(dev_env_link_attr, '- development environments'),
+//             html_partials.link(lib_mod_link_attr, '- popular libraries and modules'),
+//             html_partials.link(gen_comp_link_attr, '- general computer skills'),
+//             html_partials.link(projects_link_attr, 
+//                 html_partials.span(projects_hash, '#'),
+//                 html_partials.span(projects_text, 'projects')
+//             ),
+//             html_partials.link(web_app_link_attr, '- web applications'),
+//             html_partials.link(graphics_link_attr, '- graphics designs'),
+//             html_partials.link(vim_plug_link_attr, '- vim plugins'),
+//             html_partials.link(contrib_link_attr, '- open source contributions'),
+//             html_partials.link(photo_link_attr, '- photography'),
+//             html_partials.link(elec_link_attr, '- electronics'),
+//             html_partials.link(metal_fab_link_attr, '- metal fabrication')
+//         );
+//
+// let highlight = component_template_options.highlight, highlight_link = {};
+// if(highlight === 'prog_lang'){
+//     highlight_link = {
+//         '#skillset_hash': {
+//             color: '#fff0e6' 
+//         },
+//         '#skillset_text': {
+//             color: '#ff6600'
+//         },
+//         '#prog_lang_link': {
+//             color: '#ff6600'
+//         }
+//     };
+// }else if(highlight === 'dev_env'){
+//     highlight_link = {
+//         '#skillset_hash': {
+//             color: '#fff0e6' 
+//         },
+//         '#skillset_text': {
+//             color: '#ff6600'
+//         },
+//         '#dev_env_link': {
+//             color: '#ff6600'
+//         }
+//     };
+// }else if(highlight === 'lib_mod'){
+//     highlight_link = {
+//         '#skillset_hash': {
+//             color: '#fff0e6' 
+//         },
+//         '#skillset_text': {
+//             color: '#ff6600'
+//         },
+//         '#lib_mod_link': {
+//             color: '#ff6600'
+//         }
+//     };
+// }else if(highlight === 'gen_comp'){
+//     highlight_link = {
+//         '#skillset_hash': {
+//             color: '#fff0e6' 
+//         },
+//         '#skillset_text': {
+//             color: '#ff6600'
+//         },
+//         '#gen_comp_link': {
+//             color: '#ff6600'
+//         }
+//     };
+// }else if(highlight === 'web_app'){
+//     highlight_link = {
+//         '#projects_hash': {
+//             color: '#fff0e6' 
+//         },
+//         '#projects_text': {
+//             color: '#ff6600'
+//         },
+//         '#web_app_link': {
+//             color: '#ff6600'
+//         }
+//     };
+// }else if(highlight === 'graphics'){
+//     highlight_link = {
+//         '#projects_hash': {
+//             color: '#fff0e6' 
+//         },
+//         '#projects_text': {
+//             color: '#ff6600'
+//         },
+//         '#graphics_link': {
+//             color: '#ff6600'
+//         }
+//     };
+// }else if(highlight === 'vim_plug'){
+//     highlight_link = {
+//         '#projects_hash': {
+//             color: '#fff0e6' 
+//         },
+//         '#projects_text': {
+//             color: '#ff6600'
+//         },
+//         '#vim_plug_link': {
+//             color: '#ff6600'
+//         }
+//     };
+// }else if(highlight === 'contrib'){
+//     highlight_link = {
+//         '#projects_hash': {
+//             color: '#fff0e6' 
+//         },
+//         '#projects_text': {
+//             color: '#ff6600'
+//         },
+//         '#contrib_link': {
+//             color: '#ff6600'
+//         }
+//     };
+// }else if(highlight === 'photo'){
+//     highlight_link = {
+//         '#projects_hash': {
+//             color: '#fff0e6' 
+//         },
+//         '#projects_text': {
+//             color: '#ff6600'
+//         },
+//         '#photo_link': {
+//             color: '#ff6600'
+//         }
+//     };
+// }else if(highlight === 'elec'){
+//     highlight_link = {
+//         '#projects_hash': {
+//             color: '#fff0e6' 
+//         },
+//         '#projects_text': {
+//             color: '#ff6600'
+//         },
+//         '#elec_link': {
+//             color: '#ff6600'
+//         }
+//     };
+// }else if(highlight === 'metal_fab'){
+//     highlight_link = {
+//         '#projects_hash': {
+//             color: '#fff0e6' 
+//         },
+//         '#projects_text': {
+//             color: '#ff6600'
+//         },
+//         '#metal_fab_link': {
+//             color: '#ff6600'
+//         }
+//     };
+// }
+//
+//     // css variables
+//
+//
+//
+//     // template config
+//     let template = {
+//         laptop:{
+//             landscape:{
+//                 fonts: [fonts.forced_squaremedium, fonts.felona_stmedium],
+//                 styles: [scaled.laptop_landscape],
+//                 scripts: [],
+//                 html: [folio_nav_list],
+//                 css:{
+//                     [component_details.project + component_details.identifier]:[highlight_link],
+//                     [component_details.project + component_details.classifier]:{
+//                         'z-index': component_template_options.z_index || 'auto',
 //                         margin: 0,
 //                         padding: 0,
-//                     },
-//                     '@media (min-width: 769px) and (orientation: portrait)':{
-//                     },
-//                     '@media (max-width: 768px) and (orientation: landscape)':{
-//                         margin: 0,
-//                         padding: 0,
-//                     },
-//                     '@media (max-width: 768px) and (orientation: portrait)':{
-//                     },
-//                     a:{
-//                         '@media (min-width: 769px) and (orientation: landscape)':{
+//                         position: 'absolute',
+//                         top: xy(108, media.laptop.landscape).y,
+//                         left: xy(20, media.laptop.landscape).x,
+//                         width: '318.317px',
+//                         height: '397.003px',
+//                         'background-color': '#1a0a00',
+//                         '.folio_nav_list': {
 //                             margin: 0,
 //                             padding: 0,
+//                             'list-style': 'none'
+//                         },
+//                         '.link_group': {
 //                             'text-decoration': 'none',
 //                             display: 'inline-block',
-//                             ':hover .hash': {
+//                             outline: 'none',
+//                             ':active :focus': {
+//                                 outline: 'none'
+//                             },
+//                             ':hover .link_group_hash': {
 //                                 color: '#fff0e6'
 //                             },
-//                             ':hover .link_group':{
+//                             ':hover .link_group_text':{
 //                                 color: '#ff6600'
 //                             }
 //                         },
-//                         '@media (min-width: 769px) and (orientation: portrait)':{
-//                         },
-//                         '@media (max-width: 768px) and (orientation: landscape)':{
+//                         '.link_group_hash':{
 //                             margin: 0,
 //                             padding: 0,
+//                             'margin-top': '5px',
+//                             'margin-left': '5px',
+//                             'font-size': '48px',
+//                             'font-family': 'forced_squaremedium',
+//                             color: '#ff6600',
+//                             display: 'inline-block'
+//                         },
+//                         '.link_group_text':{
+//                             margin: 0,
+//                             padding: 0,
+//                             'margin-top': '5px',
+//                             'margin-left': '5px',
+//                             'font-size': '32px',
+//                             'font-family': 'forced_squaremedium',
+//                             color: '#fff0e6',
+//                             display: 'inline-block'
+//                         },
+//                         '.sub_link': {
+//                             margin: 0,
+//                             padding: 0,
+//                             'margin-top': '5px',
+//                             'margin-left': '20px',
+//                             'font-family': 'felona_stmedium',
+//                             'font-size': '17.3333px',
+//                             color: '#fff0e6',
 //                             'text-decoration': 'none',
 //                             display: 'inline-block',
-//                             ':hover .hash': {
-//                                 color: '#fff0e6'
+//                             outline: 'none',
+//                             ':active :focus': {
+//                                 outline: 'none'
 //                             },
-//                             ':hover .link_group':{
+//                             ':hover':{
 //                                 color: '#ff6600'
 //                             }
 //                         },
-//                         '@media (max-width: 768px) and (orientation: portrait)':{
+//                     }
+//                 }
+//             },
+//             portrait:{
+//                 fonts: [],
+//                 styles: [scaled.laptop_portrait],
+//                 scripts: [],
+//                 html: [],
+//                 css:{
+//                     [component_details.project + component_details.identifier]:[],
+//                     [component_details.project + component_details.classifier]:{
+//                         'z-index': component_template_options.z_index || 'auto',
+//                         margin: 0,
+//                         padding: 0,
+//                         position: 'absolute',
+//                         top: xy(107, media.laptop.portrait).y,
+//                         left: xy(45, media.laptop.portrait).x,
+//                         width: '318.317px',
+//                         height: '397.003px',
+//                         'background-color': '#1a0a00',
+//                         '.folio_nav_list': {
+//                             margin: 0,
+//                             padding: 0,
+//                             'list-style': 'none'
 //                         },
-//                         span: {
-//                             '@media (min-width: 769px) and (orientation: landscape)':{
-//                                 margin: 0,
-//                                 padding: 0,
-//                                 'vertical-align': 'middle',
-//                                 display: 'inline-block'
+//                         '.link_group': {
+//                             'text-decoration': 'none',
+//                             display: 'inline-block',
+//                             outline: 'none',
+//                             ':active :focus': {
+//                                 outline: 'none'
 //                             },
-//                             '@media (min-width: 769px) and (orientation: portrait)':{
+//                             ':hover .link_group_hash': {
+//                                 color: '#fff0e6'
 //                             },
-//                             '@media (max-width: 768px) and (orientation: landscape)':{
-//                                 margin: 0,
-//                                 padding: 0,
-//                                 'vertical-align': 'middle',
-//                                 display: 'inline-block'
-//                             },
-//                             '@media (max-width: 768px) and (orientation: portrait)':{
+//                             ':hover .link_group_text':{
+//                                 color: '#ff6600'
 //                             }
-//                         }
+//                         },
+//                         '.link_group_hash':{
+//                             margin: 0,
+//                             padding: 0,
+//                             'margin-top': '5px',
+//                             'margin-left': '5px',
+//                             'font-size': '48px',
+//                             'font-family': 'forced_squaremedium',
+//                             color: '#ff6600',
+//                             display: 'inline-block'
+//                         },
+//                         '.link_group_text':{
+//                             margin: 0,
+//                             padding: 0,
+//                             'margin-top': '5px',
+//                             'margin-left': '5px',
+//                             'font-size': '32px',
+//                             'font-family': 'forced_squaremedium',
+//                             color: '#fff0e6',
+//                             display: 'inline-block'
+//                         },
+//                         '.sub_link': {
+//                             margin: 0,
+//                             padding: 0,
+//                             'margin-top': '5px',
+//                             'margin-left': '20px',
+//                             'font-family': 'felona_stmedium',
+//                             'font-size': '17.3333px',
+//                             color: '#fff0e6',
+//                             'text-decoration': 'none',
+//                             display: 'inline-block',
+//                             outline: 'none',
+//                             ':active :focus': {
+//                                 outline: 'none'
+//                             },
+//                             ':hover':{
+//                                 color: '#ff6600'
+//                             }
+//                         },
 //                     }
 //                 }
 //             }
 //         },
-//         html:{
-//             'div#scale_func.scale_func': [
-//                 nested_html_components
-//             ]
+//         phablet:{
+//             landscape:{
+//                 fonts: [],
+//                 styles: [scaled.phablet_landscape],
+//                 scripts: [],
+//                 html: [],
+//                 css:{
+//                     [component_details.project + component_details.identifier]:[],
+//                     [component_details.project + component_details.classifier]:{
+//                         'z-index': component_template_options.z_index || 'auto',
+//                         margin: 0,
+//                         padding: 0,
+//                         position: 'absolute',
+//                         top: xy(76, media.phablet.landscape).y,
+//                         left: xy(12, media.phablet.landscape).x,
+//                         width: '250px',
+//                         height: '309px',
+//                         'background-color': '#1a0a00',
+//                         '.folio_nav_list': {
+//                             margin: 0,
+//                             padding: 0,
+//                             'list-style': 'none'
+//                         },
+//                         '.link_group': {
+//                             'text-decoration': 'none',
+//                             display: 'inline-block',
+//                             outline: 'none',
+//                             ':active :focus': {
+//                                 outline: 'none'
+//                             },
+//                             ':hover .link_group_hash': {
+//                                 color: '#fff0e6'
+//                             },
+//                             ':hover .link_group_text':{
+//                                 color: '#ff6600'
+//                             }
+//                         },
+//                         '.link_group_hash':{
+//                             margin: 0,
+//                             padding: 0,
+//                             'margin-top': '2px',
+//                             'margin-left': '2px',
+//                             'font-size': '40px',
+//                             'font-family': 'forced_squaremedium',
+//                             color: '#ff6600',
+//                             display: 'inline-block'
+//                         },
+//                         '.link_group_text':{
+//                             margin: 0,
+//                             padding: 0,
+//                             'margin-top': '2px',
+//                             'margin-left': '2px',
+//                             'font-size': '28px',
+//                             'font-family': 'forced_squaremedium',
+//                             color: '#fff0e6',
+//                             display: 'inline-block'
+//                         },
+//                         '.sub_link': {
+//                             margin: 0,
+//                             padding: 0,
+//                             'margin-top': '2px',
+//                             'margin-left': '10px',
+//                             'font-family': 'felona_stmedium',
+//                             'font-size': '14px',
+//                             color: '#fff0e6',
+//                             'text-decoration': 'none',
+//                             display: 'inline-block',
+//                             outline: 'none',
+//                             ':active :focus': {
+//                                 outline: 'none'
+//                             },
+//                             ':hover':{
+//                                 color: '#ff6600'
+//                             }
+//                         },
+//                     }
+//                 }
+//             },
+//             portrait:{
+//                 fonts: [],
+//                 styles: [scaled.phablet_portrait],
+//                 scripts: [],
+//                 html: [],
+//                 css:{
+//                     [component_details.project + component_details.identifier]:[],
+//                     [component_details.project + component_details.classifier]:{
+//                         'z-index': component_template_options.z_index || 'auto',
+//                         margin: 0,
+//                         padding: 0,
+//                         position: 'absolute',
+//                         top: xy(70, media.phablet.portrait).y,
+//                         left: xy(18, media.phablet.portrait).x,
+//                         width: '250px',
+//                         height: '309px',
+//                         'background-color': '#1a0a00',
+//                         '.folio_nav_list': {
+//                             margin: 0,
+//                             padding: 0,
+//                             'list-style': 'none'
+//                         },
+//                         '.link_group': {
+//                             'text-decoration': 'none',
+//                             display: 'inline-block',
+//                             outline: 'none',
+//                             ':active :focus': {
+//                                 outline: 'none'
+//                             },
+//                             ':hover .link_group_hash': {
+//                                 color: '#fff0e6'
+//                             },
+//                             ':hover .link_group_text':{
+//                                 color: '#ff6600'
+//                             }
+//                         },
+//                         '.link_group_hash':{
+//                             margin: 0,
+//                             padding: 0,
+//                             'margin-top': '2px',
+//                             'margin-left': '2px',
+//                             'font-size': '40px',
+//                             'font-family': 'forced_squaremedium',
+//                             color: '#ff6600',
+//                             display: 'inline-block'
+//                         },
+//                         '.link_group_text':{
+//                             margin: 0,
+//                             padding: 0,
+//                             'margin-top': '2px',
+//                             'margin-left': '2px',
+//                             'font-size': '28px',
+//                             'font-family': 'forced_squaremedium',
+//                             color: '#fff0e6',
+//                             display: 'inline-block'
+//                         },
+//                         '.sub_link': {
+//                             margin: 0,
+//                             padding: 0,
+//                             'margin-top': '2px',
+//                             'margin-left': '10px',
+//                             'font-family': 'felona_stmedium',
+//                             'font-size': '14px',
+//                             color: '#fff0e6',
+//                             'text-decoration': 'none',
+//                             display: 'inline-block',
+//                             outline: 'none',
+//                             ':active :focus': {
+//                                 outline: 'none'
+//                             },
+//                             ':hover':{
+//                                 color: '#ff6600'
+//                             }
+//                         },
+//                     }
+//                 }
+//             }
+//         },
+//     };
 //
+//
+//     return {
+//         details:{...component_details},
+//         templates:{
+//             default_template:{
+//                 laptop:{
+//                     landscape:{
+//                         media: media.laptop.landscape,
+//                         html:{
+//                             scripts: [...template.laptop.landscape.scripts],
+//                             styles: [...template.laptop.landscape.styles],
+//                             base: [...template.laptop.landscape.html]
+//                         },
+//                         css:{
+//                             fonts: [template.laptop.landscape.fonts],
+//                             base: [template.laptop.landscape.css]
+//                         }
+//                     },
+//                     portrait:{
+//                         media: media.laptop.portrait,
+//                         html:{
+//                             scripts: [...template.laptop.portrait.scripts],
+//                             styles: [...template.laptop.portrait.styles],
+//                             base: [...template.laptop.portrait.html]
+//                         },
+//                         css:{
+//                             fonts: [template.laptop.portrait.fonts],
+//                             base: [template.laptop.portrait.css]
+//                         }
+//                     }
+//                 },
+//                 phablet:{
+//                     landscape:{
+//                         media: media.phablet.landscape,
+//                         html:{
+//                             scripts: [...template.phablet.landscape.scripts],
+//                             styles: [...template.phablet.landscape.styles],
+//                             base: [...template.phablet.landscape.html]
+//                         },
+//                         css:{
+//                             fonts: [template.phablet.landscape.fonts],
+//                             base: [template.phablet.landscape.css]
+//                         }
+//                     },
+//                     portrait:{
+//                         media: media.phablet.portrait,
+//                         html:{
+//                             scripts: [...template.phablet.portrait.scripts],
+//                             styles: [...template.phablet.portrait.styles],
+//                             base: [...template.phablet.portrait.html]
+//                         },
+//                         css:{
+//                             fonts: [template.phablet.portrait.fonts],
+//                             base: [template.phablet.portrait.css]
+//                         }
+//                     }
+//                 }
+//             }
 //         }
-//
 //     };
 // }
 //
+// export default scale_func_templates;
 //
-// // HTML PAGE LAYOUT
+// // PARSE TEMPLATE
+// var component_template = meld.template_parser(config);
 //
-// export var scale_func_nested_layout = function(){
-// 	return scale_func();
+// // PRINT TO CONSOLE
+// absurd(function(api) {
+//     api.morph("component").add(component_template).compile(function(err, css, html) {
+//             console.log(css);
+//             console.log(html);
+//     });
+// });
+//
+//
+// // PAGE LAYOUT
+// var page_details = {
+// 	name: 'scale_func',
+// 	page_title: null
 // };
 //
-// var component_name = 'scale_func';
-// //var page_title = '';
+//
+// // external script files
+// var lib = {
+// 	script:{
+// 		_attrs:{
+// 			src: './eqcss.js'
+// 		}
+// 	}
+// };
 //
 //
-// export function scale_func_page_layout(){
+// // component page layout
+// function scale_func_layout(){
 // 	return {
 // 		_:"<!DOCTYPE html>",
 // 		html: {
 // 			_attrs:{
-// 				style: "width:100%;height:100%;"
+// 				   style: "width:100%;height:100%;overflow:hidden;"
 // 			},
 // 			head: {
 // 				_include: [
-// 					'<link rel="stylesheet" type="text/css" href="' + component_name + '.css"/>'
+// 					'<meta name="viewport" content="width=device-width,initial-scale=1.0">',
+// 					'<link rel="stylesheet" type="text/css" href="' + page_details.name + '.css"/>'
 // 				],
-// 				title: component_name 
+// 				title: page_details.page_title || page_details.name 
 // 			},
 // 			body: {
 // 				_attrs:{
 // 					style: "margin:0;padding:0;"
 // 				},
 // 				_include: [ 
-// 					scale_func_nested_layout(),
-// 					eqcss
+// 					component_template,
+// 					lib
 // 				]
 // 			}
 // 		}
 // 	};
 // }
 //
+// // EXPRESS SERVER CONFIGURATIONS
+// // express server middlewares
+// var scale_func_css_express, scale_func_html_express;
 //
-// // ABSURD JS CONSOLE AND FILE TEST CODE
-// var absurd = require("absurd");
-//
-//
-// absurd(function(api) {
-// 	// // print to file
-// 	// var css_file = "./" + component_name + ".css";
-// 	// var html_file = "./" + component_name + ".html";
-// 	// api.morph("html").add(scale_func_page_layout()).compileFile(html_file);
-// 	// api.morph("component").add(scale_func_page_layout()).compileFile(css_file);
-//
-// 	 // print to console
-// 	// // component
-// 	// api.morph("component").add(scale_func()).compile(function(err, css, html) {
-// 	//		console.log(css);
-// 	//		console.log(html);
-// 	// });
-// 	// component layout
-// 	api.morph("component").add(scale_func_page_layout()).compile(function(err, css) {
-// 		console.log(css);
-// 	});
-// 	api.morph("html").add(scale_func_page_layout()).compile(function(err, html) {
-// 		console.log(html);
-// 	});
+// absurd().morph("component").add(scale_func_layout()).compile(function(err, css) {
+// 	   scale_func_css_express = css;
 // });
 //
-//
-//
-// // EXPRESS MIDDLEWARES
-// var scale_func_page_css, scale_func_page_html;
-//
-// absurd().morph("component").add(scale_func_page_layout()).compile(function(err, css) {
-// 	   scale_func_page_css = css;
+// absurd().morph("html").add(scale_func_layout()).compile(function(err, html) {
+// 	   scale_func_html_express = html;
 // });
 //
-// absurd().morph("html").add(scale_func_page_layout()).compile(function(err, html) {
-// 	   scale_func_page_html = html;
-// });
-//
-// export function scale_func_css_mid(req, res){
-// 	res.send(scale_func_page_css);
+// function scale_func_css_mid(req, res){
+// 	res.send(scale_func_css_express);
 // } 
 //
-// export function scale_func_html_mid(req, res){
-// 	res.send(scale_func_page_html);
+// function scale_func_html_mid(req, res){
+// 	res.send(scale_func_html_express);
 // } 
 //
 //
 //
-// // EXPRESS TEST SERVER
-//
+// // express testing server
 // // server imports
-// var express = require('express');
-// var helmet = require('helmet');
-// var path = require('path');
-//
+// import express from "express";
+// import helmet from "helmet";
+// import path from "path";
 //
 // // global express server variables
 // var app = express();
@@ -515,9 +935,7 @@ export function scale(identifier, properties){
 // app.use(helmet());
 //
 // //set default path to web app resources
-// app.use('/assets',  express.static(path.join( __dirname, 'assets' )));
-// app.use('/db',  express.static(path.join( __dirname, 'db' )));
-// app.use('/log',	express.static(path.join( __dirname, 'log' )));
+// app.use(express.static(path.join(__dirname, '/')));
 //
 // // web application routes
 // app.get('/', setContentType("html"), scale_func_html_mid);
@@ -537,5 +955,5 @@ export function scale(identifier, properties){
 // const open_browser = require('open');
 //
 // (async () => {
-// 	await open_browser('http://127.0.0.1:8080', {app: ['firefox', '-new-tab']});
+// 	await open_browser('http://127.0.0.1:8080', {app: ['google-chrome', '-new-tab']});
 // })();
