@@ -56,8 +56,8 @@
   },
   "dependencies": {},
   "scripts": {
-    "build": "npm run build_js",
-    "dist": "",
+    "build": "",
+    "dist": "rollup -c ./config/rollup/lib.config.js",
     "commit": "git-cz",
     "rls": "standard-version"
   },
