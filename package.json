@@ -1,6 +1,6 @@
 {
   "name": "css_plugins",
-  "version": "0.6.11",
+  "version": "0.6.12",
   "main": "lib/lib.js",
   "files": [
     "/lib"
@@ -67,6 +67,7 @@
     "dist": "rollup -c config/rollup/config.lib.js",
     "commit": "npm --no-git-tag-version version patch && git add npm-shrinkwrap.json && git add -p package.json && git-cz",
     "rls": "release-it --ci --no-git.tag --no-github.release --no-npm.publish --no-gitlab.release",
+    "rls_lib": "release-it --ci --no-git.tag --no-github.release --no-npm.publish --no-gitlab.release patch",
     "release": "release-it patch --ci",
     "ncu": "ncu",
     "pub_lib": "npm run rls_lib && npm run dist && cd $INIT_CWD/dist && npm publish"
