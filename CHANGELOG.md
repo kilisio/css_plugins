@@ -1,3 +1,10 @@
+## [0.6.13](https://github.com/kilisio/css_plugins/compare/v0.6.9...v0.6.13) (2020-02-19)
+
+
+### Bug Fixes
+
+* **scale_func.js:** fixed scaling when media properties are not defined ([ee667ea](https://github.com/kilisio/css_plugins/commit/ee667eafbb30d01cdf13e880581c9aaf6dc9b42f))
+
 # Change Log
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
