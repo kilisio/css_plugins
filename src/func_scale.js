@@ -40,28 +40,57 @@ export function scale(identifier, properties){
         media_query += min_height;
     }
 
-    let scale = `
-        @element html` + media_query + `{
-            ` + identifier + ` {
-                transform: scaleX(eval('window.innerWidth / ` + properties.width + `')) scaleY(eval("window.innerHeight / ` + properties.height + `"));
+    let scale;
+    if(properties.orientation === null){
+        scale = `
+            @element html` + media_query + `{
+                ` + identifier + ` {
+                    transform: scaleX(eval('window.innerWidth / ` + properties.width + `')) scaleY(eval("
+                        let ratio = ` + properties.width + ` / ` + properties.height + `, height = window.innerHeight;
+                        let win_ratio = window.innerWidth / window.innerHeight;
+                        if((win_ratio > (ratio * 3)) && (window.innerHeight < window.innerWidth)){
+                            height = window.innerWidth / ratio;
+                        }
+                        height / ` + properties.height + `;
+                    "));
                     transform-origin: left top;
+                }
             }
-        }
-    `;
+        `;
+    }else if((properties.orientation === 'landscape') && (properties.width < 769)){
+        scale = `
+            @element html` + media_query + `{
+                ` + identifier + ` {
+                    transform: scaleX(eval('window.innerWidth / ` + properties.width + `')) scaleY(eval("
+                        let ratio = ` + properties.width + ` / ` + properties.height + `, height = window.innerHeight;
+                        let win_ratio = window.innerWidth / window.innerHeight;
+                        if(win_ratio > (ratio * 3)){
+                            height = window.innerWidth / ratio;
+                        }
+                        height / ` + properties.height + `;
+                    "));
+                    transform-origin: left top;
+                }
+            }
+        `;
+    }else{
+        scale = `
+            @element html{
+                overflow: hidden;
+            }
+            @element html` + media_query + `{
+                ` + identifier + ` {
+                    transform: scaleX(eval('window.innerWidth / ` + properties.width + `')) scaleY(eval("window.innerHeight / ` + properties.height + `;
+                    "));
+                    transform-origin: left top;
+                }
+            }
+        `;
+    }
 
     return scale;
 
 }
 
+export default scale;
 
-var props = {
-    orientation: null,
-    // max_width: '1366px',
-    max_height: null,
-    min_height: null,
-    min_width: null,
-    width: '1366px',
-    height: '768px'
-};
-
-console.log(scale('#scale', props));
