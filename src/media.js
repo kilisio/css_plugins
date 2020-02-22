@@ -3,7 +3,7 @@ export var media = {
     default: {
         all: {
             orientation: null,
-            max_width: 1366,
+            max_width: 3840,
             max_height: null,
             min_width: null,
             min_height: null,
@@ -14,7 +14,7 @@ export var media = {
     laptop:{
         landscape:{
             orientation:'landscape',
-            max_width: null,
+            max_width: 3840,
             max_height: null,
             min_width: 769,
             min_height: null,
@@ -23,7 +23,7 @@ export var media = {
         },
         portrait:{
             orientation: 'portrait',
-            max_width: null,
+            max_width: 3840,
             max_height: null,
             min_width: 769,
             min_height: null,

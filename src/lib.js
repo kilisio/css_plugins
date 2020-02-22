@@ -1,4 +1,4 @@
 "use strict";
 
-export { scale } from "./scale_func.js";
+export { scale } from "./func_scale.js";
 export { xy } from "./xy_func.js";

@@ -1,3 +1,21 @@
+## [0.6.19](https://github.com/kilisio/css_plugins/compare/v0.6.9...v0.6.19) (2020-02-22)
+
+
+### Bug Fixes
+
+* **func_scale.js:** scaling responsive to a ratio of 2/3 of window inner height in mobile landscape view ([0085a7d](https://github.com/kilisio/css_plugins/commit/0085a7d9c5e397f490f3abfd46d70f5a64933896))
+* **lib.js:** changed scale function export path ([8cf8d39](https://github.com/kilisio/css_plugins/commit/8cf8d398c36041fe12704842fd9c260806272bbc))
+* **scale_func.js:** fixed scaling when media properties are not defined ([ee667ea](https://github.com/kilisio/css_plugins/commit/ee667eafbb30d01cdf13e880581c9aaf6dc9b42f))
+
+## [0.6.18](https://github.com/kilisio/css_plugins/compare/v0.6.9...v0.6.18) (2020-02-22)
+
+
+### Bug Fixes
+
+* **func_scale.js:** scaling responsive to a ratio of 2/3 of window inner height in mobile landscape view ([0085a7d](https://github.com/kilisio/css_plugins/commit/0085a7d9c5e397f490f3abfd46d70f5a64933896))
+* **lib.js:** changed scale function export path ([8cf8d39](https://github.com/kilisio/css_plugins/commit/8cf8d398c36041fe12704842fd9c260806272bbc))
+* **scale_func.js:** fixed scaling when media properties are not defined ([ee667ea](https://github.com/kilisio/css_plugins/commit/ee667eafbb30d01cdf13e880581c9aaf6dc9b42f))
+
 ## [0.6.13](https://github.com/kilisio/css_plugins/compare/v0.6.9...v0.6.13) (2020-02-19)
 
 
